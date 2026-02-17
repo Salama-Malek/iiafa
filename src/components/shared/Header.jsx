@@ -25,8 +25,8 @@ export default function Header({ currentPage }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-[#a97c50]/15"
-            : "bg-gradient-to-b from-black/40 to-transparent"
+            ? "bg-[#f7efe4]/95 backdrop-blur-xl shadow-lg border-b border-[#a97c50]/30"
+            : "bg-gradient-to-b from-[#5b0f16]/95 to-[#7a1018]/80"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -125,7 +125,7 @@ export default function Header({ currentPage }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 pt-20 bg-white/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] md:hidden"
           >
             <nav
               className="flex flex-col items-center gap-2 pt-8"
