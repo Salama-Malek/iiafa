@@ -13,12 +13,12 @@ export default function Footer() {
   return (
     <footer
       className="relative pattern-overlay pb-20 md:pb-0"
-      style={{ background: "#1a0a0c" }}
+      style={{ background: "var(--surface-darker)" }}
     >
       <div
         className="h-1 w-full"
         style={{
-          background: "linear-gradient(to left, #99141e, #a97c50, #99141e)",
+          background: "linear-gradient(to left, var(--primary-solid), var(--secondary-solid), var(--primary-solid))",
         }}
       />
 
@@ -40,7 +40,7 @@ export default function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-[#a97c50] transition-all text-xs"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-[var(--primary-solid)] transition-all text-xs"
                 >
                   {s.icon}
                 </a>
@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <h3
               className="text-white font-bold text-lg mb-4"
-              style={{ color: "#a97c50" }}
+              style={{ color: "var(--primary-solid)" }}
             >
               {t("footer.quickLinks")}
             </h3>
@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <h3
               className="text-white font-bold text-lg mb-4"
-              style={{ color: "#a97c50" }}
+              style={{ color: "var(--primary-solid)" }}
             >
               {t("footer.contactTitle")}
             </h3>
@@ -80,18 +80,18 @@ export default function Footer() {
                 href={`tel:${siteContent.contact.phone}`}
                 className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm"
               >
-                <Phone className="w-4 h-4" style={{ color: "#a97c50" }} />
+                <Phone className="w-4 h-4" style={{ color: "var(--primary-solid)" }} />
                 <span dir="ltr">{siteContent.contact.phone}</span>
               </a>
               <a
                 href={`mailto:${siteContent.contact.email}`}
                 className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm"
               >
-                <Mail className="w-4 h-4" style={{ color: "#a97c50" }} />
+                <Mail className="w-4 h-4" style={{ color: "var(--primary-solid)" }} />
                 <span>{siteContent.contact.email}</span>
               </a>
               <div className="flex items-center justify-center md:justify-start gap-3 text-white/60 text-sm">
-                <MapPin className="w-4 h-4" style={{ color: "#a97c50" }} />
+                <MapPin className="w-4 h-4" style={{ color: "var(--primary-solid)" }} />
                 <span>{siteContent.contact.address}</span>
               </div>
             </div>

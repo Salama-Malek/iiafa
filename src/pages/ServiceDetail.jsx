@@ -86,7 +86,7 @@ export default function ServiceDetail() {
     return (
       <div className="pt-32 pb-20 text-center">
         <p className="text-xl text-gray-500">الخدمة غير موجودة</p>
-        <Link to={createPageUrl('Services')} className="mt-4 inline-block text-[#99141e] font-bold">
+        <Link to={createPageUrl('Services')} className="mt-4 inline-block text-[var(--primary-solid)] font-bold">
           العودة للخدمات
         </Link>
       </div>
@@ -96,7 +96,7 @@ export default function ServiceDetail() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)' }}>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker), var(--secondary-solid), var(--surface-darker))' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.div
@@ -129,7 +129,7 @@ export default function ServiceDetail() {
             viewport={{ once: true }}
             className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100"
           >
-            <h2 className="text-2xl font-bold mb-8" style={{ color: '#99141e' }}>ما نقدمه في هذه الخدمة</h2>
+            <h2 className="text-2xl font-bold mb-8" style={{ color: 'var(--primary-solid)' }}>ما نقدمه في هذه الخدمة</h2>
             <div className="space-y-5">
               {service.items.map((item, i) => (
                 <motion.div
@@ -140,7 +140,7 @@ export default function ServiceDetail() {
                   transition={{ delay: i * 0.05 }}
                   className="flex gap-4 items-start"
                 >
-                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: '#a97c50' }} />
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-1" style={{ color: 'var(--primary-solid)' }} />
                   <p className="text-gray-700 text-base leading-relaxed">{item}</p>
                 </motion.div>
               ))}
@@ -153,7 +153,7 @@ export default function ServiceDetail() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mt-10 bg-gradient-to-l rounded-2xl p-8 text-center"
-            style={{ background: 'linear-gradient(to left, #99141e, #7a1018)' }}
+            style={{ background: 'linear-gradient(to left, var(--primary-solid), var(--primary-strong))' }}
           >
             <h3 className="text-2xl font-bold text-white mb-3">هل تحتاج هذه الخدمة؟</h3>
             <p className="text-white/70 mb-6">تواصل معنا اليوم للحصول على استشارة قانونية</p>
@@ -181,7 +181,7 @@ export default function ServiceDetail() {
           <div className="mt-8 text-center">
             <Link
               to={createPageUrl('Services')}
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-[#99141e] transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--primary-solid)] transition-colors font-medium"
             >
               <ArrowRight className="w-5 h-5" />
               العودة لجميع الخدمات

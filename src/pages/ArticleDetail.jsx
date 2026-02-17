@@ -40,7 +40,7 @@ export default function ArticleDetail() {
     return (
       <div className="pt-32 pb-20 text-center">
         <p className="text-xl text-gray-500 mb-4">المقال غير موجود</p>
-        <Link to={createPageUrl('Articles')} className="text-[#99141e] font-bold">
+        <Link to={createPageUrl('Articles')} className="text-[var(--primary-solid)] font-bold">
           العودة للمقالات
         </Link>
       </div>
@@ -50,7 +50,7 @@ export default function ArticleDetail() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)' }}>
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker), var(--secondary-solid), var(--surface-darker))' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4">
@@ -104,7 +104,7 @@ export default function ArticleDetail() {
           {article.tags?.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-8">
               {article.tags.map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs" style={{ background: '#a97c5015', color: '#a97c50' }}>{tag}</Badge>
+                <Badge key={tag} variant="secondary" className="text-xs" style={{ background: 'var(--primary-solid)15', color: 'var(--primary-solid)' }}>{tag}</Badge>
               ))}
             </div>
           )}
@@ -133,7 +133,7 @@ export default function ArticleDetail() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="mt-10 rounded-2xl p-8 text-center"
-            style={{ background: 'linear-gradient(to left, #99141e, #7a1018)' }}
+            style={{ background: 'linear-gradient(to left, var(--primary-solid), var(--primary-strong))' }}
           >
             <h3 className="text-xl font-bold text-white mb-2">هل لديك استفسار حول هذا الموضوع؟</h3>
             <p className="text-white/70 mb-5 text-sm">تواصل معنا للحصول على استشارة قانونية متخصصة</p>
@@ -152,19 +152,19 @@ export default function ArticleDetail() {
           {/* Related */}
           {related.length > 0 && (
             <div className="mt-16">
-              <h2 className="text-2xl font-bold mb-6" style={{ color: '#99141e' }}>مقالات ذات صلة</h2>
+              <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--primary-solid)' }}>مقالات ذات صلة</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {related.map(r => (
                   <Link
                     key={r.slug}
                     to={createPageUrl(`ArticleDetail?slug=${r.slug}`)}
-                    className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-[#a97c50]/20"
+                    className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-[var(--primary-solid)]/20"
                   >
                     {r.cover_image && (
                       <img src={r.cover_image} alt={r.title} className="w-full h-32 object-cover" />
                     )}
                     <div className="p-4">
-                      <h4 className="font-bold text-sm text-gray-900 group-hover:text-[#99141e] transition-colors leading-relaxed">
+                      <h4 className="font-bold text-sm text-gray-900 group-hover:text-[var(--primary-solid)] transition-colors leading-relaxed">
                         {r.title}
                       </h4>
                     </div>

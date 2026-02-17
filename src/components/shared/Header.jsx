@@ -25,8 +25,8 @@ export default function Header({ currentPage }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#f7efe4]/95 backdrop-blur-xl shadow-lg border-b border-[#a97c50]/30"
-            : "bg-gradient-to-b from-[#5b0f16]/95 to-[#7a1018]/80"
+            ? "bg-[var(--surface-soft)]/95 backdrop-blur-xl shadow-lg border-b border-[var(--primary-solid)]/30"
+            : "bg-gradient-to-b from-[var(--surface-dark)]/95 to-[var(--secondary-solid)]/85"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -47,7 +47,7 @@ export default function Header({ currentPage }) {
               />
               <div className="hidden sm:block">
                 <div
-                  className={`font-bold text-base transition-colors ${scrolled ? "text-[#99141e]" : "text-white"}`}
+                  className={`font-bold text-base transition-colors ${scrolled ? "text-[var(--primary-solid)]" : "text-white"}`}
                 >
                   {t("hero.title")}
                 </div>
@@ -72,10 +72,10 @@ export default function Header({ currentPage }) {
                     className={`relative px-4 py-2 rounded-xl text-base font-medium transition-all ${
                       isActive
                         ? scrolled
-                          ? "text-[#99141e]"
+                          ? "text-[var(--primary-solid)]"
                           : "text-white"
                         : scrolled
-                          ? "text-gray-700 hover:text-[#99141e]"
+                          ? "text-gray-700 hover:text-[var(--primary-solid)]"
                           : "text-white/85 hover:text-white"
                     }`}
                     aria-current={isActive ? "page" : undefined}
@@ -85,7 +85,7 @@ export default function Header({ currentPage }) {
                       <motion.div
                         layoutId="nav-indicator"
                         className="absolute bottom-0 right-4 left-4 h-0.5 rounded-full"
-                        style={{ background: "#a97c50" }}
+                        style={{ background: "var(--primary-solid)" }}
                       />
                     )}
                   </Link>
@@ -94,7 +94,7 @@ export default function Header({ currentPage }) {
               <Link
                 to={createPageUrl("Contact")}
                 className="mr-2 px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-                style={{ background: "#99141e" }}
+                style={{ background: "var(--primary-solid)" }}
               >
                 {t("nav.freeConsultation")}
               </Link>
@@ -125,7 +125,7 @@ export default function Header({ currentPage }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] md:hidden"
+            className="fixed inset-0 z-40 pt-20 bg-[var(--surface-soft)] md:hidden"
           >
             <nav
               className="flex flex-col items-center gap-2 pt-8"
@@ -136,7 +136,7 @@ export default function Header({ currentPage }) {
                   key={l.page}
                   to={createPageUrl(l.page)}
                   onClick={() => setMobileOpen(false)}
-                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[#99141e] transition-colors"
+                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[var(--primary-solid)] transition-colors"
                 >
                   {l.label}
                 </Link>

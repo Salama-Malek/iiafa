@@ -20,7 +20,7 @@ export default function Services() {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)' }}>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker), var(--secondary-solid), var(--surface-darker))' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.h1
@@ -55,15 +55,15 @@ export default function Services() {
               >
                 <Link
                   to={createPageUrl(`ServiceDetail?service=${service.slug}`)}
-                  className="group flex gap-5 bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-[#a97c50]/30 shadow-sm hover:shadow-xl transition-all duration-500"
+                  className="group flex gap-5 bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-[var(--primary-solid)]/30 shadow-sm hover:shadow-xl transition-all duration-500"
                 >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110" style={{ background: '#99141e10' }}>
-                    {React.createElement(icons[service.slug] || FileText, { className: 'w-7 h-7', style: { color: '#99141e' } })}
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110" style={{ background: 'var(--primary-solid)10' }}>
+                    {React.createElement(icons[service.slug] || FileText, { className: 'w-7 h-7', style: { color: 'var(--primary-solid)' } })}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>
+                    <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[var(--primary-solid)] transition-colors">{service.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed mb-3">{service.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium transition-all group-hover:gap-2" style={{ color: '#a97c50' }}>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium transition-all group-hover:gap-2" style={{ color: 'var(--primary-solid)' }}>
                       تفاصيل الخدمة
                       <ArrowLeft className="w-4 h-4" />
                     </span>

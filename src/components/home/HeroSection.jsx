@@ -15,23 +15,23 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(145deg, #1a0a0c 0%, #99141e 45%, #7a1018 75%, #1a0a0c 100%)",
+            "linear-gradient(145deg, var(--surface-darker) 0%, var(--primary-solid) 42%, var(--secondary-solid) 74%, var(--surface-darker) 100%)",
         }}
       />
       <div className="absolute inset-0 pattern-overlay opacity-30" />
       <div
         className="absolute top-20 right-20 w-96 h-96 rounded-full opacity-10"
-        style={{ background: "radial-gradient(circle, #a97c50, transparent)" }}
+        style={{ background: "radial-gradient(circle, var(--primary-solid), transparent)" }}
       />
       <div
         className="absolute bottom-20 left-20 w-72 h-72 rounded-full opacity-10"
-        style={{ background: "radial-gradient(circle, #a97c50, transparent)" }}
+        style={{ background: "radial-gradient(circle, var(--primary-solid), transparent)" }}
       />
       <div
         className="absolute top-0 left-0 right-0 h-1"
         style={{
           background:
-            "linear-gradient(to left, transparent, #a97c50, transparent)",
+            "linear-gradient(to left, transparent, var(--primary-solid), transparent)",
         }}
       />
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
               className="h-px w-16 md:w-24"
               style={{ background: "rgba(169,124,80,0.5)" }}
             />
-            <Scale className="w-5 h-5" style={{ color: "#a97c50" }} />
+            <Scale className="w-5 h-5" style={{ color: "var(--primary-solid)" }} />
             <div
               className="h-px w-16 md:w-24"
               style={{ background: "rgba(169,124,80,0.5)" }}
@@ -75,7 +75,7 @@ export default function HeroSection() {
           </h1>
           <p
             className="text-xl md:text-3xl font-medium mb-2"
-            style={{ color: "#a97c50" }}
+            style={{ color: "var(--primary-solid)" }}
           >
             {t("hero.subtitle")}
           </p>
@@ -99,7 +99,7 @@ export default function HeroSection() {
           <Link
             to={createPageUrl("Contact")}
             className="px-8 py-4 rounded-2xl text-white font-bold text-lg md:text-xl transition-all hover:shadow-2xl hover:scale-105 flex items-center gap-2"
-            style={{ background: "#99141e" }}
+            style={{ background: "var(--primary-solid)" }}
           >
             {t("hero.primaryCta")}
             <ArrowLeft className="w-5 h-5" />
@@ -107,7 +107,7 @@ export default function HeroSection() {
           <Link
             to={createPageUrl("Services")}
             className="px-8 py-4 rounded-2xl font-bold text-lg md:text-xl border-2 transition-all hover:bg-white/10"
-            style={{ borderColor: "#a97c50", color: "#a97c50" }}
+            style={{ borderColor: "var(--primary-solid)", color: "var(--primary-solid)" }}
           >
             {t("hero.secondaryCta")}
           </Link>
