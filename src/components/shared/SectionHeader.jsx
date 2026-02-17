@@ -1,0 +1,28 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+export default function SectionHeader({ title, subtitle, light = false }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="text-center mb-12 md:mb-16"
+    >
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#a97c50' }} />
+        <div className="w-2 h-2 rotate-45" style={{ background: '#a97c50' }} />
+        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#a97c50' }} />
+      </div>
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${light ? 'text-white' : ''}`} style={{ color: light ? 'white' : '#99141e' }}>
+        {title}
+      </h2>
+      {subtitle && (
+        <p className={`text-base md:text-lg max-w-2xl mx-auto leading-relaxed ${light ? 'text-white/80' : 'text-gray-600'}`}>
+          {subtitle}
+        </p>
+      )}
+    </motion.div>
+  );
+}
