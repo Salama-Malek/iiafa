@@ -15,7 +15,7 @@ export default function About() {
       <section
         className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)",
+          background: "linear-gradient(135deg, #2c1d13, #a97c50, #2c1d13)",
         }}
       >
         <div className="absolute inset-0 pattern-overlay opacity-20" />
@@ -35,15 +35,15 @@ export default function About() {
           >
             <div
               className="h-px w-16"
-              style={{ background: "rgba(169,124,80,0.5)" }}
+              style={{ background: "rgba(153,20,30,0.5)" }}
             />
             <div
               className="w-2 h-2 rotate-45"
-              style={{ background: "#a97c50" }}
+              style={{ background: "#99141e" }}
             />
             <div
               className="h-px w-16"
-              style={{ background: "rgba(169,124,80,0.5)" }}
+              style={{ background: "rgba(153,20,30,0.5)" }}
             />
           </motion.div>
         </div>
@@ -65,18 +65,18 @@ export default function About() {
               <div className="relative">
                 <div
                   className="w-full aspect-square max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4"
-                  style={{ borderColor: "#a97c50" }}
+                  style={{ borderColor: "#99141e" }}
                 >
                   <img
                     src={LOGO_URL}
                     alt="شركة إعفاء"
                     className="w-full h-full object-contain p-12"
-                    style={{ background: "#a97c50" }}
+                    style={{ background: "#99141e" }}
                   />
                 </div>
                 <div
                   className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl opacity-20"
-                  style={{ background: "#99141e" }}
+                  style={{ background: "#a97c50" }}
                 />
               </div>
             </motion.div>
@@ -89,13 +89,13 @@ export default function About() {
             >
               <h2
                 className="text-3xl md:text-4xl font-bold mb-6"
-                style={{ color: "#99141e" }}
+                style={{ color: "#a97c50" }}
               >
                 شركة إعفاء للمحاماة والاستشارات القانونية
               </h2>
               <div
                 className="w-20 h-1 rounded-full mb-6"
-                style={{ background: "#a97c50" }}
+                style={{ background: "#99141e" }}
               />
               <p className="text-gray-700 text-lg leading-loose mb-4">
                 انطلاقاً من الخبرات المتكاملة والمتنوعة، نشأت شركة إعفاء
@@ -135,17 +135,17 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#a97c50]/20 transition-all"
+                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg hover:border-[#99141e]/20 transition-all"
               >
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: "#99141e10" }}
+                  style={{ background: "#a97c5010" }}
                 >
-                  <item.icon className="w-7 h-7" style={{ color: "#99141e" }} />
+                  <item.icon className="w-7 h-7" style={{ color: "#a97c50" }} />
                 </div>
                 <h3
                   className="font-bold text-xl mb-3"
-                  style={{ color: "#99141e" }}
+                  style={{ color: "#a97c50" }}
                 >
                   {item.title}
                 </h3>
@@ -166,7 +166,7 @@ export default function About() {
         <Link
           to={createPageUrl("Contact")}
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-lg transition-all hover:opacity-90 hover:scale-105"
-          style={{ background: "#99141e" }}
+          style={{ background: "#a97c50" }}
         >
           تواصل معنا
           <ArrowLeft className="w-5 h-5" />

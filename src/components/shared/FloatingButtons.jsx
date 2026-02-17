@@ -44,7 +44,7 @@ export default function FloatingButtons() {
             aria-label={t("nav.scrollTopAria")}
             onClick={scrollToTop}
             className="fixed bottom-24 md:bottom-8 right-4 md:right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-xl border"
-            style={{ background: '#99141e', borderColor: '#a97c50' }}
+            style={{ background: '#a97c50', borderColor: '#99141e' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}

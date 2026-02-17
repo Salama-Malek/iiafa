@@ -85,8 +85,8 @@ function Field({ label, required, hint, icon: Icon, children }) {
       <div className="flex items-start justify-between gap-3 w-full">
         <Label className="text-sm font-semibold text-gray-800 text-right inline-flex items-center gap-2">
           {Icon ? (
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[rgba(153,20,30,0.07)] border border-[rgba(153,20,30,0.12)]">
-              <Icon className="h-4 w-4 text-[var(--burgundy)]" />
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[rgba(169,124,80,0.07)] border border-[rgba(169,124,80,0.12)]">
+              <Icon className="h-4 w-4 text-[var(--gold)]" />
             </span>
           ) : null}
           <span>
@@ -114,8 +114,8 @@ function InputShell({ dir, children }) {
         "w-full min-w-0",
         "group relative rounded-2xl border bg-white shadow-sm transition-all",
         "border-[rgba(169,124,80,0.25)]",
-        "focus-within:ring-2 focus-within:ring-[rgba(153,20,30,0.18)] focus-within:border-[rgba(153,20,30,0.35)]",
-        "hover:border-[rgba(153,20,30,0.22)]",
+        "focus-within:ring-2 focus-within:ring-[rgba(169,124,80,0.18)] focus-within:border-[rgba(169,124,80,0.35)]",
+        "hover:border-[rgba(169,124,80,0.32)]",
       ].join(" ")}
     >
       <div className="relative w-full">{children}</div>
@@ -181,7 +181,7 @@ export default function Contact() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 120% at 70% 0%, rgba(169,124,80,0.30) 0%, rgba(153,20,30,0.24) 35%, rgba(26,10,12,0.94) 85%), linear-gradient(130deg, #14070a 0%, #6e0f16 45%, #14070a 100%)",
+              "radial-gradient(120% 120% at 70% 0%, rgba(169,124,80,0.34) 0%, rgba(153,20,30,0.22) 35%, rgba(44,29,19,0.94) 85%), linear-gradient(130deg, #25180f 0%, #8b643f 45%, #25180f 100%)",
           }}
         />
         <div className="absolute inset-0 pattern-overlay opacity-30" />
@@ -320,19 +320,19 @@ export default function Contact() {
                     <div
                       className="w-11 h-11 rounded-xl flex items-center justify-center mb-3 border"
                       style={{
-                        background: "rgba(153,20,30,0.08)",
-                        borderColor: "rgba(153,20,30,0.14)",
+                        background: "rgba(169,124,80,0.08)",
+                        borderColor: "rgba(169,124,80,0.14)",
                       }}
                     >
                       <point.icon
                         className="w-5 h-5"
-                        style={{ color: "var(--burgundy)" }}
+                        style={{ color: "var(--gold)" }}
                       />
                     </div>
 
                     <h3
                       className="font-bold text-lg mb-1.5"
-                      style={{ color: "var(--burgundy)" }}
+                      style={{ color: "var(--gold)" }}
                     >
                       {point.title}
                     </h3>
@@ -385,19 +385,19 @@ export default function Contact() {
                       <div
                         className="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center border"
                         style={{
-                          background: "rgba(153,20,30,0.09)",
-                          borderColor: "rgba(153,20,30,0.16)",
+                          background: "rgba(169,124,80,0.09)",
+                          borderColor: "rgba(169,124,80,0.16)",
                         }}
                       >
                         <CheckCircle2
                           className="w-8 h-8"
-                          style={{ color: "var(--burgundy)" }}
+                          style={{ color: "var(--gold)" }}
                         />
                       </div>
 
                       <h3
                         className="text-2xl font-bold mb-2"
-                        style={{ color: "var(--burgundy)" }}
+                        style={{ color: "var(--gold)" }}
                       >
                         تم إرسال رسالتك بنجاح
                       </h3>
@@ -413,7 +413,7 @@ export default function Contact() {
                           className="rounded-xl px-6"
                           style={{
                             background:
-                              "linear-gradient(130deg, var(--burgundy), #7f121a)",
+                              "linear-gradient(130deg, var(--gold), #8b643f)",
                           }}
                         >
                           إرسال طلب جديد
@@ -430,7 +430,7 @@ export default function Contact() {
                         <div className="min-w-0">
                           <h2
                             className="text-2xl md:text-3xl font-bold"
-                            style={{ color: "var(--burgundy)" }}
+                            style={{ color: "var(--gold)" }}
                           >
                             أرسل لنا تفاصيل طلبك
                           </h2>
@@ -442,9 +442,9 @@ export default function Contact() {
                         <span
                           className="text-sm px-3 py-1.5 rounded-full border shrink-0"
                           style={{
-                            color: "var(--burgundy)",
-                            background: "rgba(153,20,30,0.06)",
-                            borderColor: "rgba(153,20,30,0.14)",
+                            color: "var(--gold)",
+                            background: "rgba(169,124,80,0.06)",
+                            borderColor: "rgba(169,124,80,0.14)",
                           }}
                         >
                           <RequiredMark /> الحقول الإلزامية
@@ -523,7 +523,7 @@ export default function Contact() {
                         </InputShell>
                       </Field>
 
-                      <div className="rounded-2xl border bg-[rgba(153,20,30,0.03)] p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 w-full">
+                      <div className="rounded-2xl border bg-[rgba(169,124,80,0.03)] p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 w-full">
                         <div className="text-sm text-gray-600 leading-7">
                           بالضغط على <span className="font-semibold">إرسال الرسالة</span> أنت توافق على مشاركة البيانات
                           لأغراض التواصل فقط.
@@ -539,7 +539,7 @@ export default function Contact() {
                         className="w-full h-14 rounded-2xl text-lg font-bold text-white transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-lg"
                         style={{
                           background:
-                            "linear-gradient(130deg, var(--burgundy), #7f121a)",
+                            "linear-gradient(130deg, var(--gold), #8b643f)",
                         }}
                       >
                         {loading ? (

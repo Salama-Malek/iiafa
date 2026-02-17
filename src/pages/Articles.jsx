@@ -27,7 +27,7 @@ export default function Articles() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)' }}>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #2c1d13, #a97c50, #2c1d13)' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.h1
@@ -64,8 +64,8 @@ export default function Articles() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedTag('')}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${!selectedTag ? 'text-white' : 'text-gray-600 bg-white border border-gray-200 hover:border-[#a97c50]'}`}
-                style={!selectedTag ? { background: '#99141e' } : {}}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${!selectedTag ? 'text-white' : 'text-gray-600 bg-white border border-gray-200 hover:border-[#99141e]'}`}
+                style={!selectedTag ? { background: '#a97c50' } : {}}
               >
                 الكل
               </button>
@@ -73,8 +73,8 @@ export default function Articles() {
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag === selectedTag ? '' : tag)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedTag === tag ? 'text-white' : 'text-gray-600 bg-white border border-gray-200 hover:border-[#a97c50]'}`}
-                  style={selectedTag === tag ? { background: '#a97c50' } : {}}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedTag === tag ? 'text-white' : 'text-gray-600 bg-white border border-gray-200 hover:border-[#99141e]'}`}
+                  style={selectedTag === tag ? { background: '#99141e' } : {}}
                 >
                   {tag}
                 </button>
@@ -85,7 +85,7 @@ export default function Articles() {
           {/* Featured */}
           {!search && !selectedTag && featured.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6" style={{ color: '#99141e' }}>مقالات مميزة</h2>
+              <h2 className="text-2xl font-bold mb-6" style={{ color: '#a97c50' }}>مقالات مميزة</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {featured.slice(0, 2).map(article => (
                   <ArticleCard key={article.id} article={article} featured />
@@ -135,7 +135,7 @@ function ArticleCard({ article, featured = false, index = 0 }) {
     >
       <Link
         to={createPageUrl(`ArticleDetail?slug=${article.slug}`)}
-        className={`group block bg-white rounded-2xl overflow-hidden border border-transparent hover:border-[#a97c50]/30 shadow-sm hover:shadow-xl transition-all duration-500 ${featured ? 'md:flex' : ''}`}
+        className={`group block bg-white rounded-2xl overflow-hidden border border-transparent hover:border-[#99141e]/30 shadow-sm hover:shadow-xl transition-all duration-500 ${featured ? 'md:flex' : ''}`}
       >
         {article.cover_image && (
           <div className={`overflow-hidden ${featured ? 'md:w-1/2' : 'h-48'}`}>
@@ -162,7 +162,7 @@ function ArticleCard({ article, featured = false, index = 0 }) {
               </span>
             )}
           </div>
-          <h3 className={`font-bold text-gray-900 group-hover:text-[#99141e] transition-colors leading-relaxed ${featured ? 'text-xl md:text-2xl mb-3' : 'text-lg mb-2'}`}>
+          <h3 className={`font-bold text-gray-900 group-hover:text-[#a97c50] transition-colors leading-relaxed ${featured ? 'text-xl md:text-2xl mb-3' : 'text-lg mb-2'}`}>
             {article.title}
           </h3>
           {article.excerpt && (

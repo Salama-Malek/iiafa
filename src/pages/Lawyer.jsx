@@ -42,7 +42,7 @@ export default function Lawyer() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c, #99141e, #1a0a0c)' }}>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #2c1d13, #a97c50, #2c1d13)' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.h1
@@ -56,7 +56,7 @@ export default function Lawyer() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl font-medium" style={{ color: '#a97c50' }}
+            className="text-xl md:text-2xl font-medium" style={{ color: '#99141e' }}
           >
             محمد بن حمد السلمان
           </motion.p>
@@ -74,8 +74,8 @@ export default function Lawyer() {
             className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 mb-8"
           >
             <div className="flex items-center gap-4 mb-6">
-              <Briefcase className="w-7 h-7" style={{ color: '#99141e' }} />
-              <h2 className="text-2xl font-bold" style={{ color: '#99141e' }}>الخبرة العملية</h2>
+              <Briefcase className="w-7 h-7" style={{ color: '#a97c50' }} />
+              <h2 className="text-2xl font-bold" style={{ color: '#a97c50' }}>الخبرة العملية</h2>
             </div>
             <p className="text-gray-700 text-base leading-loose">
               يعمل المحامي محمد بن حمد السلمان في المجال القانوني منذ عام 1438هـ، قام خلال هذه الفترة بالتدرب لدى مكاتب المحاماة وإدارة الشؤون القانونية. تخلل هذه الفترة تمثيل العملاء أمام المحاكم التجارية والعمالية والعامة والإدارية، كما قام بتقديم العديد من الاستشارات وصياغة العقود والمذكرات ومراجعتها ودراسة القضايا وتحديد الجدوى، وغيرها من الأعمال القانونية.
@@ -94,15 +94,15 @@ export default function Lawyer() {
                 className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#99141e10' }}>
-                    <section.icon className="w-5 h-5" style={{ color: '#99141e' }} />
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: '#a97c5010' }}>
+                    <section.icon className="w-5 h-5" style={{ color: '#a97c50' }} />
                   </div>
-                  <h3 className="font-bold text-lg" style={{ color: '#99141e' }}>{section.title}</h3>
+                  <h3 className="font-bold text-lg" style={{ color: '#a97c50' }}>{section.title}</h3>
                 </div>
                 <ul className="space-y-3">
                   {section.items.map((item, ii) => (
                     <li key={ii} className="flex gap-3 items-start">
-                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2.5" style={{ background: '#a97c50' }} />
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2.5" style={{ background: '#99141e' }} />
                       <span className="text-gray-600 text-sm leading-relaxed">{item}</span>
                     </li>
                   ))}
@@ -123,7 +123,7 @@ export default function Lawyer() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium border-2 transition-all hover:bg-gray-50"
-              style={{ borderColor: '#a97c50', color: '#a97c50' }}
+              style={{ borderColor: '#99141e', color: '#99141e' }}
             >
               الملف الشخصي على LinkedIn
             </a>

@@ -25,8 +25,8 @@ export default function Header({ currentPage }) {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#f7efe4]/95 backdrop-blur-xl shadow-lg border-b border-[#a97c50]/30"
-            : "bg-gradient-to-b from-[#5b0f16]/95 to-[#7a1018]/80"
+            ? "bg-[#f7efe4]/95 backdrop-blur-xl shadow-lg border-b border-[#99141e]/30"
+            : "bg-gradient-to-b from-[#7f5938]/95 to-[#8b643f]/80"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -47,7 +47,7 @@ export default function Header({ currentPage }) {
               />
               <div className="hidden sm:block">
                 <div
-                  className={`font-bold text-base transition-colors ${scrolled ? "text-[#99141e]" : "text-white"}`}
+                  className={`font-bold text-base transition-colors ${scrolled ? "text-[#a97c50]" : "text-white"}`}
                 >
                   {t("hero.title")}
                 </div>
@@ -72,10 +72,10 @@ export default function Header({ currentPage }) {
                     className={`relative px-4 py-2 rounded-xl text-base font-medium transition-all ${
                       isActive
                         ? scrolled
-                          ? "text-[#99141e]"
+                          ? "text-[#a97c50]"
                           : "text-white"
                         : scrolled
-                          ? "text-gray-700 hover:text-[#99141e]"
+                          ? "text-gray-700 hover:text-[#a97c50]"
                           : "text-white/85 hover:text-white"
                     }`}
                     aria-current={isActive ? "page" : undefined}
@@ -85,7 +85,7 @@ export default function Header({ currentPage }) {
                       <motion.div
                         layoutId="nav-indicator"
                         className="absolute bottom-0 right-4 left-4 h-0.5 rounded-full"
-                        style={{ background: "#a97c50" }}
+                        style={{ background: "#99141e" }}
                       />
                     )}
                   </Link>
@@ -94,7 +94,7 @@ export default function Header({ currentPage }) {
               <Link
                 to={createPageUrl("Contact")}
                 className="mr-2 px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
-                style={{ background: "#99141e" }}
+                style={{ background: "#a97c50" }}
               >
                 {t("nav.freeConsultation")}
               </Link>
@@ -136,7 +136,7 @@ export default function Header({ currentPage }) {
                   key={l.page}
                   to={createPageUrl(l.page)}
                   onClick={() => setMobileOpen(false)}
-                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[#99141e] transition-colors"
+                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[#a97c50] transition-colors"
                 >
                   {l.label}
                 </Link>

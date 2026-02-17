@@ -36,14 +36,14 @@ export default function ServicesPreview() {
             >
               <Link
                 to={createPageUrl(`ServiceDetail?service=${service.slug}`)}
-                className="group block bg-white rounded-3xl p-6 md:p-8 border border-transparent hover:border-[#a97c50]/40 shadow-sm hover:shadow-xl transition-all duration-500"
+                className="group block bg-white rounded-3xl p-6 md:p-8 border border-transparent hover:border-[#99141e]/40 shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style={{ background: '#99141e10' }}>
-                  <service.icon className="w-6 h-6" style={{ color: '#99141e' }} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style={{ background: '#a97c5010' }}>
+                  <service.icon className="w-6 h-6" style={{ color: '#a97c50' }} />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>
+                <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#a97c50] transition-colors">{service.title}</h3>
                 <p className="text-gray-600 text-base leading-relaxed mb-4">{service.desc}</p>
-                <span className="inline-flex items-center gap-1 text-base font-medium transition-all group-hover:gap-2" style={{ color: '#a97c50' }}>
+                <span className="inline-flex items-center gap-1 text-base font-medium transition-all group-hover:gap-2" style={{ color: '#99141e' }}>
                   {t('home.services.more')}
                   <ArrowLeft className="w-4 h-4" />
                 </span>
@@ -56,7 +56,7 @@ export default function ServicesPreview() {
           <Link
             to={createPageUrl('Services')}
             className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition-all hover:opacity-90 hover:scale-105"
-            style={{ background: '#99141e' }}
+            style={{ background: '#a97c50' }}
           >
             {t('home.services.allServices')}
             <ArrowLeft className="w-5 h-5" />

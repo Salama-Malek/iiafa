@@ -11,11 +11,11 @@ export default function SectionHeader({ title, subtitle, light = false }) {
       className="text-center mb-12 md:mb-16"
     >
       <div className="flex items-center justify-center gap-4 mb-4">
-        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#a97c50' }} />
-        <div className="w-2.5 h-2.5 rotate-45" style={{ background: '#a97c50' }} />
-        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#a97c50' }} />
+        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#99141e' }} />
+        <div className="w-2.5 h-2.5 rotate-45" style={{ background: '#99141e' }} />
+        <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : '#99141e' }} />
       </div>
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${light ? 'text-white' : ''}`} style={{ color: light ? 'white' : '#99141e' }}>
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${light ? 'text-white' : ''}`} style={{ color: light ? 'white' : '#a97c50' }}>
         {title}
       </h2>
       {subtitle && (

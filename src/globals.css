@@ -21,10 +21,15 @@
 }
 
 :root {
-  --burgundy: #99141e;
-  --burgundy-dark: #7a1018;
-  --gold: #a97c50;
-  --gold-light: #c4a47a;
+  --brand-primary: #a97c50;
+  --brand-primary-dark: #8b643f;
+  --brand-primary-light: #c4a47a;
+  --brand-secondary: #99141e;
+  --brand-secondary-dark: #7a1018;
+  --burgundy: var(--brand-secondary);
+  --burgundy-dark: var(--brand-secondary-dark);
+  --gold: var(--brand-primary);
+  --gold-light: var(--brand-primary-light);
   --cream: #faf8f5;
   --warm-gray: #f0ece6;
   --warm-gray-dark: #d4cec4;
@@ -68,8 +73,8 @@ a, button {
 ::-webkit-scrollbar-thumb:hover { background: var(--burgundy); }
 
 .prose-arabic { line-height: 2; font-size: 1.125rem; }
-.prose-arabic h2 { color: var(--burgundy); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-arabic h3 { color: var(--gold); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-arabic h2 { color: var(--gold); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-arabic h3 { color: var(--burgundy); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 .prose-arabic p { margin-bottom: 1rem; }
 .prose-arabic ul, .prose-arabic ol { margin-right: 1.5rem; margin-bottom: 1rem; }
 .prose-arabic li { margin-bottom: 0.5rem; }
@@ -107,9 +112,9 @@ a, button {
     --card-foreground: 20 15% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 15% 15%;
-    --primary: 355 78% 34%;
+    --primary: 30 35% 49%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 35% 49%;
+    --secondary: 355 78% 34%;
     --secondary-foreground: 0 0% 100%;
     --muted: 30 20% 93%;
     --muted-foreground: 20 10% 45%;
@@ -119,7 +124,7 @@ a, button {
     --destructive-foreground: 0 0% 98%;
     --border: 30 15% 85%;
     --input: 30 15% 85%;
-    --ring: 355 78% 34%;
+    --ring: 30 35% 49%;
     --radius: 0.75rem;
   }
 }

@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#99141e',
-          secondary: '#a97c50'
+          primary: '#a97c50',
+          secondary: '#99141e'
         }
       },
       fontFamily: {
