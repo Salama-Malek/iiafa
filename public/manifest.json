@@ -10,12 +10,12 @@
   "description": "شركة إعفاء للمحاماة والاستشارات القانونية في المملكة العربية السعودية.",
   "icons": [
     {
-      "src": "/logo-1.jpg",
+      "src": "/logo-1.webp",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "/logo-2.jpg",
+      "src": "/logo-2.webp",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
