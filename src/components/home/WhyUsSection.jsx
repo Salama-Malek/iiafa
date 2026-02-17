@@ -13,7 +13,7 @@ const features = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a0a0c 0%, #99141e 50%, #1a0a0c 100%)' }}>
+    <section className="py-20 md:py-28 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker) 0%, var(--primary-solid) 50%, var(--surface-darker) 100%)' }}>
       <div className="absolute inset-0 pattern-overlay opacity-20" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
         <SectionHeader title={t('home.whyUs.title')} subtitle={t('home.whyUs.subtitle')} light />
@@ -21,7 +21,7 @@ export default function WhyUsSection() {
           {features.map((f, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all">
               <div className="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style={{ background: 'rgba(169,124,80,0.15)' }}>
-                <f.icon className="w-8 h-8" style={{ color: '#a97c50' }} />
+                <f.icon className="w-8 h-8" style={{ color: 'var(--primary-solid)' }} />
               </div>
               <h3 className="text-white font-bold text-lg mb-2">{f.title}</h3>
               <p className="text-white/60 text-sm leading-relaxed">{f.desc}</p>

@@ -5,8 +5,11 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#99141e',
-          secondary: '#a97c50'
+          primary: '#a97c50',
+          primaryHover: '#976d44',
+          secondary: '#dcc5ab',
+          ink: '#1f1a16',
+          danger: '#99141e'
         }
       },
       fontFamily: {
