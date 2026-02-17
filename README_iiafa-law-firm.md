@@ -63,8 +63,9 @@ No hardcoded text inside components.
 
 ## 🎨 Design Guidelines
 
-Primary Color: #99141e (Burgundy)\
-Secondary Color: #a97c50 (Gold)\
+Primary Color: #a97c50 (Gold/Clay)\
+Secondary Color: warm cream neutrals + dark brown surfaces\
+Danger/Error Color: #99141e (Burgundy, non-primary)\
 Background: Cream / off-white tones
 
 Typography: - Saudi Font (primary) - Fallback: Tajawal, Cairo,
