@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import logo2 from "/logo-2.webp";
 import { siteContent } from "@/content/ar/site";
+import { t } from "@/i18n";
 
 const LOGO_URL = logo2;
 const navLinks = siteContent.navLinks;
@@ -33,31 +34,34 @@ export default function Header({ currentPage }) {
             <Link
               to={createPageUrl("Home")}
               className="flex items-center gap-3"
-              aria-label="الانتقال إلى الصفحة الرئيسية"
+              aria-label={t("nav.homeAria")}
             >
               <img
                 src={LOGO_URL}
-                alt="شركة إعفاء"
+                alt={t("app.siteName")}
                 className="w-11 h-11 md:w-12 md:h-12 object-contain rounded-xl"
                 loading="eager"
+                decoding="async"
+                width="48"
+                height="48"
               />
               <div className="hidden sm:block">
-                <h1
+                <div
                   className={`font-bold text-base transition-colors ${scrolled ? "text-[#99141e]" : "text-white"}`}
                 >
-                  شركة إعفاء
-                </h1>
+                  {t("hero.title")}
+                </div>
                 <p
                   className={`text-xs transition-colors ${scrolled ? "text-gray-600" : "text-white/75"}`}
                 >
-                  للمحاماة والاستشارات القانونية
+                  {t("hero.subtitle")}
                 </p>
               </div>
             </Link>
 
             <nav
               className="hidden md:flex items-center gap-1"
-              aria-label="روابط التنقل الرئيسية"
+              aria-label={t("nav.mainNav")}
             >
               {navLinks.map((l) => {
                 const isActive = currentPage === l.page;
@@ -92,14 +96,14 @@ export default function Header({ currentPage }) {
                 className="mr-2 px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
                 style={{ background: "#99141e" }}
               >
-                استشارة مجانية
+                {t("nav.freeConsultation")}
               </Link>
             </nav>
 
             <button
               className="md:hidden p-2 rounded-lg"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="فتح أو إغلاق القائمة"
+              aria-label={t("nav.mobileToggle")}
             >
               {mobileOpen ? (
                 <X
@@ -125,7 +129,7 @@ export default function Header({ currentPage }) {
           >
             <nav
               className="flex flex-col items-center gap-2 pt-8"
-              aria-label="القائمة الجانبية للجوال"
+              aria-label={t("nav.mobileNav")}
             >
               {navLinks.map((l) => (
                 <Link

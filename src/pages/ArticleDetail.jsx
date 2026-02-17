@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
 import { ArrowRight, Clock, Calendar, User, Share2, Copy, MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -113,7 +112,9 @@ export default function ArticleDetail() {
           {/* Article body */}
           <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
             <div className="prose-arabic">
-              <ReactMarkdown>{article.content || ''}</ReactMarkdown>
+              {(article.content || '').split('\n').filter(Boolean).map((line, idx) => (
+                <p key={idx}>{line}</p>
+              ))}
             </div>
           </div>
 
