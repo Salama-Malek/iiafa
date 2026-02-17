@@ -1,0 +1,23 @@
+{
+  "name": "شركة إعفاء للمحاماة والاستشارات القانونية",
+  "short_name": "إعفاء",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#99141e",
+  "description": "شركة إعفاء للمحاماة والاستشارات القانونية في المملكة العربية السعودية.",
+  "icons": [
+    {
+      "src": "/logo-1.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo-2.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

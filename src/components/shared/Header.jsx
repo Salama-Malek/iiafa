@@ -14,7 +14,7 @@ export default function Header({ currentPage }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -23,35 +23,42 @@ export default function Header({ currentPage }) {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg' : 'bg-transparent'
+          scrolled
+            ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-[#a97c50]/15'
+            : 'bg-gradient-to-b from-black/40 to-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Link to={createPageUrl('Home')} className="flex items-center gap-3">
-              <img src={LOGO_URL} alt="شركة إعفاء" className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-lg" />
+            <Link to={createPageUrl('Home')} className="flex items-center gap-3" aria-label="الانتقال إلى الصفحة الرئيسية">
+              <img src={LOGO_URL} alt="شركة إعفاء" className="w-11 h-11 md:w-12 md:h-12 object-contain rounded-xl" loading="eager" />
               <div className="hidden sm:block">
-                <h1 className={`font-bold text-sm md:text-base transition-colors ${scrolled ? 'text-[#99141e]' : 'text-white'}`}>
+                <h1 className={`font-bold text-base transition-colors ${scrolled ? 'text-[#99141e]' : 'text-white'}`}>
                   شركة إعفاء
                 </h1>
-                <p className={`text-[10px] md:text-xs transition-colors ${scrolled ? 'text-gray-500' : 'text-white/70'}`}>
+                <p className={`text-xs transition-colors ${scrolled ? 'text-gray-600' : 'text-white/75'}`}>
                   للمحاماة والاستشارات القانونية
                 </p>
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1" aria-label="روابط التنقل الرئيسية">
               {navLinks.map((l) => {
                 const isActive = currentPage === l.page;
                 return (
                   <Link
                     key={l.page}
                     to={createPageUrl(l.page)}
-                    className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    className={`relative px-4 py-2 rounded-xl text-base font-medium transition-all ${
                       isActive
-                        ? (scrolled ? 'text-[#99141e]' : 'text-white')
-                        : (scrolled ? 'text-gray-600 hover:text-[#99141e]' : 'text-white/80 hover:text-white')
+                        ? scrolled
+                          ? 'text-[#99141e]'
+                          : 'text-white'
+                        : scrolled
+                          ? 'text-gray-700 hover:text-[#99141e]'
+                          : 'text-white/85 hover:text-white'
                     }`}
+                    aria-current={isActive ? 'page' : undefined}
                   >
                     {l.label}
                     {isActive && (
@@ -66,14 +73,14 @@ export default function Header({ currentPage }) {
               })}
               <Link
                 to={createPageUrl('Contact')}
-                className="mr-2 px-5 py-2 rounded-lg text-sm font-bold text-white transition-all hover:opacity-90"
+                className="mr-2 px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
                 style={{ background: '#99141e' }}
               >
                 استشارة مجانية
               </Link>
             </nav>
 
-            <button className="md:hidden p-2 rounded-lg" onClick={() => setMobileOpen(!mobileOpen)}>
+            <button className="md:hidden p-2 rounded-lg" onClick={() => setMobileOpen(!mobileOpen)} aria-label="فتح أو إغلاق القائمة">
               {mobileOpen ? (
                 <X className={`w-6 h-6 ${scrolled ? 'text-gray-800' : 'text-white'}`} />
               ) : (
@@ -90,15 +97,15 @@ export default function Header({ currentPage }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 pt-16 bg-white/98 backdrop-blur-xl md:hidden"
+            className="fixed inset-0 z-40 pt-20 bg-white/98 backdrop-blur-xl md:hidden"
           >
-            <nav className="flex flex-col items-center gap-2 pt-8">
+            <nav className="flex flex-col items-center gap-2 pt-8" aria-label="القائمة الجانبية للجوال">
               {navLinks.map((l) => (
                 <Link
                   key={l.page}
                   to={createPageUrl(l.page)}
                   onClick={() => setMobileOpen(false)}
-                  className="px-8 py-3 text-lg font-medium text-gray-700 hover:text-[#99141e] transition-colors"
+                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[#99141e] transition-colors"
                 >
                   {l.label}
                 </Link>
