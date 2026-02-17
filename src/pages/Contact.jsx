@@ -28,6 +28,7 @@ import {
   MessageSquareText,
 } from "lucide-react";
 import { services } from "@/content/ar/services";
+import { sendContactEmail } from "@/lib/contactEmail";
 import { toast } from "sonner";
 
 const CONTACT_EMAIL = "m@iiafa.info";
@@ -38,23 +39,6 @@ const INITIAL_FORM = {
   service_type: "",
   message: "",
 };
-
-function buildMailtoLink(form) {
-  const selectedService = form.service_type || "Other";
-  const subject = `Legal Consultation Request - ${selectedService}`;
-  const body = [
-    "New consultation request details:",
-    `Full Name: ${form.full_name}`,
-    `Phone: ${form.phone}`,
-    `Email: ${form.email || "-"}`,
-    `Requested Service: ${selectedService}`,
-    "",
-    "Message:",
-    form.message,
-  ].join("\n");
-
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 const contactChannels = [
   {
@@ -176,7 +160,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
 
@@ -187,12 +171,19 @@ export default function Contact() {
 
     setLoading(true);
     try {
-      window.location.href = buildMailtoLink(form);
+      await sendContactEmail({
+        ...form,
+        to_email: CONTACT_EMAIL,
+      });
       setSubmitted(true);
-      toast.success("تم تجهيز الرسالة. يرجى تأكيد الإرسال من تطبيق البريد.");
+      toast.success("تم إرسال طلبك بنجاح");
       setForm(INITIAL_FORM);
     } catch (error) {
-      toast.error("لم نتمكن من فتح تطبيق البريد.");
+      if (error?.code === "CONTACT_EMAIL_CONFIG") {
+        toast.error("البريد غير مفعل بعد. أكمل إعدادات الإرسال.");
+      } else {
+        toast.error("حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى.");
+      }
     } finally {
       setLoading(false);
     }

@@ -103,6 +103,33 @@ Client-side validation required.
 
 ------------------------------------------------------------------------
 
+## ✉️ Email Sending Setup (EmailJS)
+
+The contact form now sends real emails using EmailJS.
+
+1. Create an EmailJS account: https://www.emailjs.com/
+2. Create:
+   - one Email Service
+   - one Email Template
+3. In your EmailJS template, add these variables:
+   - `{{full_name}}`
+   - `{{phone}}`
+   - `{{email}}`
+   - `{{service_type}}`
+   - `{{message}}`
+   - `{{submitted_at}}`
+   - `{{to_email}}` (optional)
+   - `{{reply_to}}` (optional)
+4. Copy `.env.example` to `.env` and fill:
+   - `VITE_EMAILJS_PUBLIC_KEY`
+   - `VITE_EMAILJS_SERVICE_ID`
+   - `VITE_EMAILJS_TEMPLATE_ID`
+5. Restart dev server after editing `.env`.
+
+Without these keys, form submission will show a configuration error.
+
+------------------------------------------------------------------------
+
 ## 📱 Navigation
 
 Desktop → Top navbar\
