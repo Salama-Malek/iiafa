@@ -26,7 +26,7 @@ export default function Header({ currentPage }) {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-[var(--surface-soft)]/95 backdrop-blur-xl shadow-lg border-b border-[var(--primary-solid)]/30"
-            : "bg-gradient-to-b from-[var(--surface-dark)]/95 to-[var(--primary-strong)]/80"
+            : "bg-gradient-to-b from-[var(--surface-dark)]/95 to-[var(--secondary-solid)]/85"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">

@@ -42,7 +42,7 @@ export default function Lawyer() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker), var(--primary-solid), var(--surface-darker))' }}>
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--surface-darker), var(--secondary-solid), var(--surface-darker))' }}>
         <div className="absolute inset-0 pattern-overlay opacity-20" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
           <motion.h1

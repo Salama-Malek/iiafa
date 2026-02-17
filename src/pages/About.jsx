@@ -15,7 +15,7 @@ export default function About() {
       <section
         className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, var(--surface-darker), var(--primary-solid), var(--surface-darker))",
+          background: "linear-gradient(135deg, var(--surface-darker), var(--secondary-solid), var(--surface-darker))",
         }}
       >
         <div className="absolute inset-0 pattern-overlay opacity-20" />

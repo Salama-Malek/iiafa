@@ -22,9 +22,11 @@
 
 :root {
   --primary-solid: #a97c50;
-  --primary-hover: #976d44;
-  --primary-strong: #855f3a;
-  --primary-soft: #dcc5ab;
+  --primary-hover: #966d45;
+  --primary-strong: #7f5c3a;
+  --primary-soft: #d7bea2;
+  --secondary-solid: #99141e;
+  --secondary-hover: #7f1119;
   --danger: #99141e;
   --danger-strong: #7a1018;
   --ink: #1f1a16;
@@ -32,8 +34,8 @@
   --surface-cream: #faf6f0;
   --surface-soft: #f3eadf;
   --surface-card: #fffcf7;
-  --surface-dark: #342720;
-  --surface-darker: #241b16;
+  --surface-dark: #3f3d3d;
+  --surface-darker: #1e1d1d;
   --border-warm: #dfd2c3;
   --success: #2f7d4a;
   --warning: #b3741f;
@@ -58,10 +60,10 @@ body {
 
 a, button { -webkit-tap-highlight-color: transparent; }
 
-a { color: var(--primary-strong); }
-a:hover { color: var(--primary-hover); }
+a { color: var(--secondary-solid); }
+a:hover { color: var(--secondary-hover); }
 
-a:visited { color: #7b5f46; }
+a:visited { color: #6f0f16; }
 
 :focus-visible {
   outline: 3px solid var(--primary-solid);
@@ -79,7 +81,7 @@ a:visited { color: #7b5f46; }
 ::-webkit-scrollbar-thumb:hover { background: var(--primary-hover); }
 
 .prose-arabic { line-height: 2; font-size: 1.125rem; color: var(--ink); }
-.prose-arabic h2 { color: var(--primary-strong); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-arabic h2 { color: var(--secondary-solid); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
 .prose-arabic h3 { color: var(--primary-solid); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 .prose-arabic p { margin-bottom: 1rem; color: var(--muted-ink); }
 .prose-arabic ul, .prose-arabic ol { margin-right: 1.5rem; margin-bottom: 1rem; }
@@ -114,11 +116,11 @@ a:visited { color: #7b5f46; }
     --popover-foreground: 27 18% 10%;
     --primary: 31 36% 49%;
     --primary-foreground: 32 30% 9%;
-    --secondary: 33 34% 88%;
-    --secondary-foreground: 27 18% 16%;
+    --secondary: 356 77% 34%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 34 33% 92%;
     --muted-foreground: 24 14% 38%;
-    --accent: 33 34% 88%;
+    --accent: 31 34% 88%;
     --accent-foreground: 27 18% 16%;
     --destructive: 356 77% 34%;
     --destructive-foreground: 0 0% 98%;
@@ -137,8 +139,8 @@ a:visited { color: #7b5f46; }
     --popover-foreground: 36 35% 92%;
     --primary: 31 36% 54%;
     --primary-foreground: 30 32% 11%;
-    --secondary: 27 18% 22%;
-    --secondary-foreground: 36 35% 92%;
+    --secondary: 356 63% 42%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 27 18% 18%;
     --muted-foreground: 31 18% 72%;
     --accent: 27 18% 22%;

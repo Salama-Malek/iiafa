@@ -5,11 +5,12 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#a97c50',
-          primaryHover: '#976d44',
-          secondary: '#dcc5ab',
-          ink: '#1f1a16',
-          danger: '#99141e'
+          clay: '#a97c50',
+          burgundy: '#99141e',
+          burgundyHover: '#7f1119',
+          charcoal: '#3f3d3d',
+          cream: '#faf6f0',
+          ink: '#1f1a16'
         }
       },
       fontFamily: {

@@ -15,7 +15,7 @@ export default function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(145deg, var(--surface-darker) 0%, var(--primary-solid) 45%, var(--primary-strong) 75%, var(--surface-darker) 100%)",
+            "linear-gradient(145deg, var(--surface-darker) 0%, var(--primary-solid) 42%, var(--secondary-solid) 74%, var(--surface-darker) 100%)",
         }}
       />
       <div className="absolute inset-0 pattern-overlay opacity-30" />

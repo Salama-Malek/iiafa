@@ -15,7 +15,7 @@ export default function SectionHeader({ title, subtitle, light = false }) {
         <div className="w-2.5 h-2.5 rotate-45" style={{ background: 'var(--primary-solid)' }} />
         <div className="h-px w-12 md:w-20" style={{ background: light ? 'rgba(255,255,255,0.3)' : 'var(--primary-solid)' }} />
       </div>
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${light ? 'text-white' : ''}`} style={{ color: light ? 'white' : 'var(--primary-solid)' }}>
+      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${light ? 'text-white' : ''}`} style={{ color: light ? 'white' : 'var(--secondary-solid)' }}>
         {title}
       </h2>
       {subtitle && (

@@ -15,7 +15,7 @@ export default function CTASection() {
             <div className="w-2 h-2 rotate-45" style={{ background: 'var(--primary-solid)' }} />
             <div className="h-px w-12" style={{ background: 'var(--primary-solid)' }} />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: 'var(--primary-solid)' }}>{t('home.cta.title')}</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4" style={{ color: 'var(--secondary-solid)' }}>{t('home.cta.title')}</h2>
           <p className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed">{t('home.cta.subtitle')}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="https://wa.me/message/35TT3ASVVP7GF1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-lg transition-all hover:scale-105" style={{ background: '#25D366' }}>

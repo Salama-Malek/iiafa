@@ -18,7 +18,7 @@ export default function Footer() {
       <div
         className="h-1 w-full"
         style={{
-          background: "linear-gradient(to left, var(--primary-solid), var(--primary-solid), var(--primary-solid))",
+          background: "linear-gradient(to left, var(--primary-solid), var(--secondary-solid), var(--primary-solid))",
         }}
       />
 
