@@ -19,7 +19,6 @@ export default function Header({ currentPage }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-export default function Header() {
   return (
     <>
       <header
