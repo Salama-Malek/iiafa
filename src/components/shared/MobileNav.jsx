@@ -1,15 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import { Home, Briefcase, FileText, User, Phone } from 'lucide-react';
 import { siteContent } from '@/content/ar/site';
+import { t } from '@/i18n';
 
 const pickLink = (page) => siteContent.navLinks.find((item) => item.page === page);
 
 const tabs = [
-  { ...(pickLink('Home') ?? { label: 'الرئيسية', page: 'Home', path: '/' }), Icon: Home },
-  { ...(pickLink('Services') ?? { label: 'الخدمات', page: 'Services', path: '/الخدمات' }), Icon: Briefcase },
-  { ...(pickLink('Articles') ?? { label: 'المقالات', page: 'Articles', path: '/المقالات' }), Icon: FileText },
-  { ...(pickLink('Lawyer') ?? { label: 'المحامي', page: 'Lawyer', path: '/المحامي' }), Icon: User },
-  { ...(pickLink('Contact') ?? { label: 'تواصل', page: 'Contact', path: '/تواصل' }), Icon: Phone },
+  { ...(pickLink('Home') ?? { label: t('mobileNav.home'), page: 'Home', path: '/' }), Icon: Home },
+  { ...(pickLink('Services') ?? { label: t('mobileNav.services'), page: 'Services', path: '/الخدمات' }), Icon: Briefcase },
+  { ...(pickLink('Articles') ?? { label: t('mobileNav.articles'), page: 'Articles', path: '/المقالات' }), Icon: FileText },
+  { ...(pickLink('Lawyer') ?? { label: t('mobileNav.lawyer'), page: 'Lawyer', path: '/المحامي' }), Icon: User },
+  { ...(pickLink('Contact') ?? { label: t('mobileNav.contact'), page: 'Contact', path: '/تواصل' }), Icon: Phone },
 ].filter((t) => Boolean(t?.path));
 
 export default function MobileNav() {

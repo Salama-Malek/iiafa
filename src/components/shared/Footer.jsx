@@ -3,6 +3,7 @@ import { createPageUrl } from "../../utils";
 import { Phone, Mail, MapPin } from "lucide-react";
 import logo1 from "/logo-1.webp";
 import { siteContent } from "@/content/ar/site";
+import { t } from "@/i18n";
 
 const LOGO_URL = logo1;
 const socialLinks = siteContent.socialLinks;
@@ -26,12 +27,11 @@ export default function Footer() {
           <div className="text-center md:text-right">
             <img
               src={LOGO_URL}
-              alt="شركة إعفاء"
+              alt={t("app.siteName")}
               className="w-20 h-20 object-contain rounded-lg mx-auto md:mx-0 md:mr-0 mb-4"
             />
             <p className="text-white/60 text-sm leading-relaxed">
-              شركة إعفاء للمحاماة والاستشارات القانونية ذ.م.م — شريكك في النجاح
-              القانوني بالمملكة العربية السعودية.
+              {t("footer.description")}
             </p>
             <div className="flex items-center justify-center md:justify-start gap-3 mt-6">
               {socialLinks.map((s) => (
@@ -53,7 +53,7 @@ export default function Footer() {
               className="text-white font-bold text-lg mb-4"
               style={{ color: "#a97c50" }}
             >
-              روابط سريعة
+              {t("footer.quickLinks")}
             </h3>
             <nav className="space-y-2">
               {navLinks.map((l) => (
@@ -73,7 +73,7 @@ export default function Footer() {
               className="text-white font-bold text-lg mb-4"
               style={{ color: "#a97c50" }}
             >
-              تواصل معنا
+              {t("footer.contactTitle")}
             </h3>
             <div className="space-y-4">
               <a
@@ -100,8 +100,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 text-center">
           <p className="text-white/40 text-xs">
-            © {new Date().getFullYear()} شركة إعفاء للمحاماة والاستشارات
-            القانونية ذ.م.م — جميع الحقوق محفوظة
+            © {new Date().getFullYear()} {t("footer.copyright")}
           </p>
         </div>
       </div>

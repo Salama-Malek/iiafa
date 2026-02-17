@@ -4,15 +4,16 @@ import { createPageUrl } from '../../utils';
 import { motion } from 'framer-motion';
 import SectionHeader from '../shared/SectionHeader';
 import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft } from 'lucide-react';
+import { t } from '@/i18n';
 
 const services = [
-  { title: 'أعمال الشركات التجارية', icon: Building2, slug: 'commercial-companies', desc: 'تأسيس الشركات وصياغة العقود التجارية بكافة أنواعها' },
-  { title: 'الصياغة القانونية', icon: FileText, slug: 'legal-drafting', desc: 'صياغة العقود واللوائح والخطابات القانونية' },
-  { title: 'الاستشارات القانونية', icon: MessageSquare, slug: 'legal-consulting', desc: 'استشارات قانونية شفوية وكتابية شاملة' },
-  { title: 'الأعمال القضائية', icon: Gavel, slug: 'litigation', desc: 'الترافع والتمثيل القانوني أمام المحاكم' },
-  { title: 'الأوقاف والوصايا', icon: Landmark, slug: 'waqf-wills', desc: 'صياغة الوصايا وصكوك الأوقاف وإدارتها' },
-  { title: 'الوكالات التجارية والملكية الفكرية', icon: Shield, slug: 'commercial-ip', desc: 'حماية العلامات التجارية وبراءات الاختراع' },
-  { title: 'أعمال التوثيق والتسجيل العقاري', icon: Home, slug: 'notarization-realestate', desc: 'إفراغ العقارات والتوثيق والتسجيل العقاري' },
+  { title: t('home.services.items.commercial.title'), icon: Building2, slug: 'commercial-companies', desc: t('home.services.items.commercial.desc') },
+  { title: t('home.services.items.drafting.title'), icon: FileText, slug: 'legal-drafting', desc: t('home.services.items.drafting.desc') },
+  { title: t('home.services.items.consulting.title'), icon: MessageSquare, slug: 'legal-consulting', desc: t('home.services.items.consulting.desc') },
+  { title: t('home.services.items.litigation.title'), icon: Gavel, slug: 'litigation', desc: t('home.services.items.litigation.desc') },
+  { title: t('home.services.items.waqf.title'), icon: Landmark, slug: 'waqf-wills', desc: t('home.services.items.waqf.desc') },
+  { title: t('home.services.items.ip.title'), icon: Shield, slug: 'commercial-ip', desc: t('home.services.items.ip.desc') },
+  { title: t('home.services.items.realEstate.title'), icon: Home, slug: 'notarization-realestate', desc: t('home.services.items.realEstate.desc') },
 ];
 
 export default function ServicesPreview() {
@@ -20,8 +21,8 @@ export default function ServicesPreview() {
     <section className="py-20 md:py-28 pattern-overlay" style={{ background: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <SectionHeader
-          title="خدماتنا القانونية"
-          subtitle="نقدم مجموعة شاملة من الخدمات القانونية المتكاملة لخدمة عملائنا بأعلى معايير المهنية"
+          title={t('home.services.title')}
+          subtitle={t('home.services.subtitle')}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -43,7 +44,7 @@ export default function ServicesPreview() {
                 <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>
                 <p className="text-gray-600 text-base leading-relaxed mb-4">{service.desc}</p>
                 <span className="inline-flex items-center gap-1 text-base font-medium transition-all group-hover:gap-2" style={{ color: '#a97c50' }}>
-                  المزيد
+                  {t('home.services.more')}
                   <ArrowLeft className="w-4 h-4" />
                 </span>
               </Link>
@@ -57,7 +58,7 @@ export default function ServicesPreview() {
             className="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition-all hover:opacity-90 hover:scale-105"
             style={{ background: '#99141e' }}
           >
-            جميع الخدمات
+            {t('home.services.allServices')}
             <ArrowLeft className="w-5 h-5" />
           </Link>
         </div>
