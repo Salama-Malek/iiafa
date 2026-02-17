@@ -35,14 +35,14 @@ export default function ServicesPreview() {
             >
               <Link
                 to={createPageUrl(`ServiceDetail?service=${service.slug}`)}
-                className="group block bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-[#a97c50]/30 shadow-sm hover:shadow-xl transition-all duration-500"
+                className="group block bg-white rounded-3xl p-6 md:p-8 border border-transparent hover:border-[#a97c50]/40 shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style={{ background: '#99141e10' }}>
                   <service.icon className="w-6 h-6" style={{ color: '#99141e' }} />
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-4">{service.desc}</p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium transition-all group-hover:gap-2" style={{ color: '#a97c50' }}>
+                <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>
+                <p className="text-gray-600 text-base leading-relaxed mb-4">{service.desc}</p>
+                <span className="inline-flex items-center gap-1 text-base font-medium transition-all group-hover:gap-2" style={{ color: '#a97c50' }}>
                   المزيد
                   <ArrowLeft className="w-4 h-4" />
                 </span>

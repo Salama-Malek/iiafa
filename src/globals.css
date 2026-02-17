@@ -1,8 +1,24 @@
-@import url('https://engage.moc.gov.sa/e/fonts/saudi-font/?lang=ar');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Saudi';
+  src: url('./assets/Web fonts/WOFF-2-TT/Saudi Web/SaudiWeb-Regular.woff2') format('woff2'),
+       url('./assets/Web fonts/WOFF-TT/Saudi Web/SaudiWeb-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Saudi';
+  src: url('./assets/Web fonts/WOFF-2-TT/Saudi Web/SaudiWeb-Bold.woff2') format('woff2'),
+       url('./assets/Web fonts/WOFF-TT/Saudi Web/SaudiWeb-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --burgundy: #99141e;
@@ -14,18 +30,29 @@
   --warm-gray-dark: #d4cec4;
 }
 
-* {
-  font-family: 'Saudi', 'Tajawal', 'Arial', sans-serif !important;
-}
-
 html {
   direction: rtl;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
+  font-family: 'Saudi', 'Tajawal', 'Arial', sans-serif;
   background-color: var(--cream);
   color: #2d2520;
+  line-height: 1.8;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
 }
 
 /* Geometric pattern overlay */
@@ -34,53 +61,37 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--cream);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--burgundy);
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--burgundy); }
+
+.prose-arabic { line-height: 2; font-size: 1.125rem; }
+.prose-arabic h2 { color: var(--burgundy); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-arabic h3 { color: var(--gold); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-arabic p { margin-bottom: 1rem; }
+.prose-arabic ul, .prose-arabic ol { margin-right: 1.5rem; margin-bottom: 1rem; }
+.prose-arabic li { margin-bottom: 0.5rem; }
+
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+@media (max-width: 768px) {
+  .mobile-app-shell {
+    background: linear-gradient(180deg, #fff 0%, #faf8f5 60%);
+  }
+
+  h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+  h2 { font-size: clamp(1.5rem, 6.5vw, 2rem); }
+  p { font-size: clamp(0.98rem, 3.5vw, 1.125rem); }
 }
 
-/* Rich text content styling */
-.prose-arabic {
-  line-height: 2;
-  font-size: 1.125rem;
-}
-.prose-arabic h2 {
-  color: var(--burgundy);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.prose-arabic h3 {
-  color: var(--gold);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-.prose-arabic p {
-  margin-bottom: 1rem;
-}
-.prose-arabic ul, .prose-arabic ol {
-  margin-right: 1.5rem;
-  margin-bottom: 1rem;
-}
-.prose-arabic li {
-  margin-bottom: 0.5rem;
-}
-
-/* Safe area for mobile bottom nav */
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @layer base {
