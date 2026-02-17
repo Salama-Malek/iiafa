@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import logo2 from '@/assets/logo-2.jpg';
+import logo2 from '/logo-2.jpg';
 import { siteContent } from '@/content/ar/site';
 
 const LOGO_URL = logo2;

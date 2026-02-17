@@ -1,17 +1,57 @@
-import { useEffect, useState } from 'react';
-import { siteContent } from '../../content/ar/site';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronUp, MessageCircle } from 'lucide-react';
 
 export default function FloatingButtons() {
-  const [showTop, setShowTop] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setShowTop(window.scrollY > 400);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="fixed left-4 bottom-24 md:bottom-6 z-40 flex flex-col gap-3">
-      <a href={siteContent.brand.whatsappUrl} target="_blank" rel="noreferrer" className="bg-green-500 text-white rounded-full px-4 py-2 shadow">واتساب</a>
-      {showTop && <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="bg-[#a97c50] text-white rounded-full px-4 py-2 shadow">أعلى</button>}
-    </div>
+    <>
+      {/* WhatsApp Button */}
+      <motion.a
+        href="https://wa.me/message/35TT3ASVVP7GF1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-24 md:bottom-8 left-4 md:left-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl"
+        style={{ background: '#25D366' }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 1, type: 'spring' }}
+      >
+        <MessageCircle className="w-7 h-7 text-white" />
+      </motion.a>
+
+      {/* Scroll to top */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-24 md:bottom-8 right-4 md:right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-xl border"
+            style={{ background: '#99141e', borderColor: '#a97c50' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronUp className="w-6 h-6 text-white" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

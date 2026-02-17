@@ -1,6 +1,6 @@
 export const siteContent = {
-  logoPrimary: '/src/assets/logo-1.jpg',
-  logoSecondary: '/src/assets/logo-2.jpg',
+logoPrimary: '/logo-1.jpg',
+  logoSecondary: '/logo-2.jpg',
   navLinks: [
     { label: 'الرئيسية', page: 'Home', path: '/' },
     { label: 'من نحن', page: 'About', path: '/من-نحن' },

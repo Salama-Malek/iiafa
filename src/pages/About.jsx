@@ -4,7 +4,7 @@ import SectionHeader from '../components/shared/SectionHeader';
 import { Target, Eye, Star, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
-import logo1 from '@/assets/logo-1.jpg';
+import logo1 from '/logo-1.jpg';
 
 const LOGO_URL = logo1;
 

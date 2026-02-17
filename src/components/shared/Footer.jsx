@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import logo1 from '@/assets/logo-1.jpg';
+import logo1 from '/logo-1.jpg';
 import { siteContent } from '@/content/ar/site';
 
 const LOGO_URL = logo1;
