@@ -1,13 +1,79 @@
 import { Link } from 'react-router-dom';
-import { siteContent } from '../../content/ar/site';
+import { createPageUrl } from '../../utils';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import logo1 from '@/assets/logo-1.jpg';
+import { siteContent } from '@/content/ar/site';
+
+const LOGO_URL = logo1;
+const socialLinks = siteContent.socialLinks;
+const navLinks = siteContent.navLinks;
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1f1314] text-white mt-16">
-      <div className="container-page py-10 grid md:grid-cols-3 gap-6">
-        <div><h3 className="font-bold mb-2">{siteContent.brand.name}</h3><p className="text-sm text-gray-300">{siteContent.footer.copy}</p></div>
-        <div><h4 className="font-semibold mb-2">{siteContent.footer.quickTitle}</h4><div className="flex flex-col gap-1">{siteContent.nav.map((n) => <Link key={n.path} to={n.path} className="text-gray-300 text-sm">{n.label}</Link>)}</div></div>
-        <div><h4 className="font-semibold mb-2">{siteContent.footer.contactTitle}</h4><p className="text-sm text-gray-300">{siteContent.brand.phone}</p><p className="text-sm text-gray-300">{siteContent.brand.email}</p></div>
+    <footer className="relative pattern-overlay pb-20 md:pb-0" style={{ background: '#1a0a0c' }}>
+      <div className="h-1 w-full" style={{ background: 'linear-gradient(to left, #99141e, #a97c50, #99141e)' }} />
+      
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+          <div className="text-center md:text-right">
+            <img src={LOGO_URL} alt="شركة إعفاء" className="w-20 h-20 object-contain rounded-lg mx-auto md:mx-0 md:mr-0 mb-4" />
+            <p className="text-white/60 text-sm leading-relaxed">
+              شركة إعفاء للمحاماة والاستشارات القانونية ذ.م.م — شريكك في النجاح القانوني بالمملكة العربية السعودية.
+            </p>
+            <div className="flex items-center justify-center md:justify-start gap-3 mt-6">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-[#a97c50] transition-all text-xs"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center md:text-right">
+            <h3 className="text-white font-bold text-lg mb-4" style={{ color: '#a97c50' }}>روابط سريعة</h3>
+            <nav className="space-y-2">
+              {navLinks.map((l) => (
+                <Link
+                  key={l.page}
+                  to={createPageUrl(l.page)}
+                  className="block text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div className="text-center md:text-right">
+            <h3 className="text-white font-bold text-lg mb-4" style={{ color: '#a97c50' }}>تواصل معنا</h3>
+            <div className="space-y-4">
+              <a href={`tel:${siteContent.contact.phone}`} className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
+                <Phone className="w-4 h-4" style={{ color: '#a97c50' }} />
+                <span dir="ltr">{siteContent.contact.phone}</span>
+              </a>
+              <a href={`mailto:${siteContent.contact.email}`} className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
+                <Mail className="w-4 h-4" style={{ color: '#a97c50' }} />
+                <span>{siteContent.contact.email}</span>
+              </a>
+              <div className="flex items-center justify-center md:justify-start gap-3 text-white/60 text-sm">
+                <MapPin className="w-4 h-4" style={{ color: '#a97c50' }} />
+                <span>{siteContent.contact.address}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-white/10 text-center">
+          <p className="text-white/40 text-xs">
+            © {new Date().getFullYear()} شركة إعفاء للمحاماة والاستشارات القانونية ذ.م.م — جميع الحقوق محفوظة
+          </p>
+        </div>
       </div>
     </footer>
   );

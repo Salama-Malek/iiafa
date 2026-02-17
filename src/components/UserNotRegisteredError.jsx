@@ -1,1 +1,3 @@
-export default function LegacyPlaceholder(){ return null; }
+export default function LegacyAuthNotice() {
+  return null;
+}

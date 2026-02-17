@@ -1,1 +1,1 @@
-export const normalizeSlug = (value = '') => value.trim().toLowerCase();
+export const toRouteSlug = (slug = '') => slug;

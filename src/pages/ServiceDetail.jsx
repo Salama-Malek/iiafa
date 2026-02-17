@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, MessageCircle, CheckCircle2 } from 'lucide-react';
+import { getServiceBySlug } from '@/lib/services';
 
 const servicesData = {
   'commercial-companies': {
@@ -78,9 +79,8 @@ const servicesData = {
 };
 
 export default function ServiceDetail() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const serviceSlug = urlParams.get('service') || 'commercial-companies';
-  const service = servicesData[serviceSlug];
+  const { slug } = useParams();
+  const service = getServiceBySlug(slug) || servicesData[slug || 'commercial-companies'];
 
   if (!service) {
     return (
