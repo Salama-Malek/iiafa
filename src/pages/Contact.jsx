@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
 import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,17 +6,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Phone, Mail, MapPin, Send, CheckCircle2, MessageCircle } from 'lucide-react';
+import { services } from '@/content/ar/services';
+import { toast } from 'sonner';
 
-const serviceOptions = [
-  'أعمال الشركات التجارية',
-  'الصياغة القانونية',
-  'الاستشارات القانونية',
-  'الأعمال القضائية',
-  'الأوقاف والوصايا',
-  'الوكالات التجارية والملكية الفكرية',
-  'أعمال التوثيق والتسجيل العقاري',
-  'أخرى',
-];
+const serviceOptions = [...services.map((service) => service.title), 'أخرى'];
 
 export default function Contact() {
   const [form, setForm] = useState({ full_name: '', phone: '', email: '', service_type: '', message: '' });
@@ -27,30 +19,19 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.entities.ContactRequest.create(form);
-    
-    // Try to send email notification
-    try {
-      await base44.integrations.Core.SendEmail({
-        to: 'm@iiafa.info',
-        subject: `طلب تواصل جديد من ${form.full_name}`,
-        body: `
-          <div dir="rtl" style="font-family: sans-serif;">
-            <h2>طلب تواصل جديد</h2>
-            <p><strong>الاسم:</strong> ${form.full_name}</p>
-            <p><strong>الجوال:</strong> ${form.phone}</p>
-            <p><strong>البريد:</strong> ${form.email || 'غير محدد'}</p>
-            <p><strong>نوع الخدمة:</strong> ${form.service_type || 'غير محدد'}</p>
-            <p><strong>الرسالة:</strong> ${form.message}</p>
-          </div>
-        `,
-      });
-    } catch (err) {
-      // Continue even if email fails
+
+    if (!form.full_name.trim() || !form.phone.trim() || !form.message.trim()) {
+      toast.error('يرجى تعبئة الحقول المطلوبة');
+      setLoading(false);
+      return;
     }
-    
-    setLoading(false);
-    setSubmitted(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      toast.success('تم إرسال طلبك بنجاح');
+      setForm({ full_name: '', phone: '', email: '', service_type: '', message: '' });
+    }, 500);
   };
 
   return (

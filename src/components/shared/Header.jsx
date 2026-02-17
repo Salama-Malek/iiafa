@@ -3,17 +3,11 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import logo2 from '@/assets/logo-2.jpg';
+import { siteContent } from '@/content/ar/site';
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_698e3ce1927d8fddb186b684/c39fecd20_logo-2.jpg";
-
-const navLinks = [
-  { label: 'الرئيسية', page: 'Home' },
-  { label: 'من نحن', page: 'About' },
-  { label: 'الخدمات', page: 'Services' },
-  { label: 'المحامي', page: 'Lawyer' },
-  { label: 'المقالات', page: 'Articles' },
-  { label: 'تواصل معنا', page: 'Contact' },
-];
+const LOGO_URL = logo2;
+const navLinks = siteContent.navLinks;
 
 export default function Header({ currentPage }) {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +28,6 @@ export default function Header({ currentPage }) {
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
             <Link to={createPageUrl('Home')} className="flex items-center gap-3">
               <img src={LOGO_URL} alt="شركة إعفاء" className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-lg" />
               <div className="hidden sm:block">
@@ -47,7 +40,6 @@ export default function Header({ currentPage }) {
               </div>
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((l) => {
                 const isActive = currentPage === l.page;
@@ -81,11 +73,7 @@ export default function Header({ currentPage }) {
               </Link>
             </nav>
 
-            {/* Mobile hamburger */}
-            <button
-              className="md:hidden p-2 rounded-lg"
-              onClick={() => setMobileOpen(!mobileOpen)}
-            >
+            <button className="md:hidden p-2 rounded-lg" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? (
                 <X className={`w-6 h-6 ${scrolled ? 'text-gray-800' : 'text-white'}`} />
               ) : (
@@ -96,7 +84,6 @@ export default function Header({ currentPage }) {
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

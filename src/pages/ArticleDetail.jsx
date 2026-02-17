@@ -1,7 +1,5 @@
 import React from 'react';
-import { base44 } from '@/api/base44Client';
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -10,18 +8,13 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
+import { getArticleBySlug, getRelatedArticles } from '@/lib/articles';
 
 export default function ArticleDetail() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const slug = urlParams.get('slug');
-
-  const { data: articles = [], isLoading } = useQuery({
-    queryKey: ['articles'],
-    queryFn: () => base44.entities.Article.list('-publish_date'),
-  });
-
-  const article = articles.find(a => a.slug === slug);
-  const related = articles.filter(a => a.slug !== slug).slice(0, 3);
+  const { slug } = useParams();
+  const isLoading = false;
+  const article = getArticleBySlug(slug);
+  const related = getRelatedArticles(slug, 3);
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -162,7 +155,7 @@ export default function ArticleDetail() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {related.map(r => (
                   <Link
-                    key={r.id}
+                    key={r.slug}
                     to={createPageUrl(`ArticleDetail?slug=${r.slug}`)}
                     className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-[#a97c50]/20"
                   >

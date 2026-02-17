@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { Home, Briefcase, FileText, User, Phone } from 'lucide-react';
+import { siteContent } from '@/content/ar/site';
 
 const tabs = [
-  { label: 'الرئيسية', page: 'Home', Icon: Home },
-  { label: 'الخدمات', page: 'Services', Icon: Briefcase },
-  { label: 'المقالات', page: 'Articles', Icon: FileText },
-  { label: 'المحامي', page: 'Lawyer', Icon: User },
+  { ...siteContent.navLinks.find((item) => item.page === 'Home'), Icon: Home },
+  { ...siteContent.navLinks.find((item) => item.page === 'Services'), Icon: Briefcase },
+  { ...siteContent.navLinks.find((item) => item.page === 'Articles'), Icon: FileText },
+  { ...siteContent.navLinks.find((item) => item.page === 'Lawyer'), Icon: User },
   { label: 'تواصل', page: 'Contact', Icon: Phone },
 ];
 

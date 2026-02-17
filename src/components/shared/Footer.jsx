@@ -2,25 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import logo1 from '@/assets/logo-1.jpg';
+import { siteContent } from '@/content/ar/site';
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_698e3ce1927d8fddb186b684/a8872a89f_logo-1.jpg";
-
-const socialLinks = [
-  { name: 'X', url: 'https://x.com/iiafalaw?s=11', icon: '𝕏' },
-  { name: 'Instagram', url: 'https://www.instagram.com/m.iiafa?igsh=MWRiemloZHd0dnVzaw%3D%3D&utm_source=qr', icon: 'IG' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/%D8%B4%D8%B1%D9%83%D8%A9-%D8%A5%D8%B9%D9%81%D8%A7%D8%A1-%D9%84%D9%84%D9%85%D8%AD%D8%A7%D9%85%D8%A7%D8%A9-%D9%88%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9/', icon: 'in' },
-  { name: 'Snapchat', url: 'https://snapchat.com/t/27Eo3DlG', icon: '👻' },
-  { name: 'TikTok', url: 'https://www.tiktok.com/@iiafa.law?_r=1&_t=ZS-93yTFoJurFk', icon: '♪' },
-];
-
-const navLinks = [
-  { label: 'الرئيسية', page: 'Home' },
-  { label: 'من نحن', page: 'About' },
-  { label: 'الخدمات', page: 'Services' },
-  { label: 'المحامي', page: 'Lawyer' },
-  { label: 'المقالات', page: 'Articles' },
-  { label: 'تواصل معنا', page: 'Contact' },
-];
+const LOGO_URL = logo1;
+const socialLinks = siteContent.socialLinks;
+const navLinks = siteContent.navLinks;
 
 export default function Footer() {
   return (
@@ -29,7 +16,6 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-          {/* Logo & About */}
           <div className="text-center md:text-right">
             <img src={LOGO_URL} alt="شركة إعفاء" className="w-20 h-20 object-contain rounded-lg mx-auto md:mx-0 md:mr-0 mb-4" />
             <p className="text-white/60 text-sm leading-relaxed">
@@ -50,7 +36,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="text-center md:text-right">
             <h3 className="text-white font-bold text-lg mb-4" style={{ color: '#a97c50' }}>روابط سريعة</h3>
             <nav className="space-y-2">
@@ -66,21 +51,20 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact Info */}
           <div className="text-center md:text-right">
             <h3 className="text-white font-bold text-lg mb-4" style={{ color: '#a97c50' }}>تواصل معنا</h3>
             <div className="space-y-4">
-              <a href="tel:0533393367" className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
+              <a href={`tel:${siteContent.contact.phone}`} className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
                 <Phone className="w-4 h-4" style={{ color: '#a97c50' }} />
-                <span dir="ltr">0533393367</span>
+                <span dir="ltr">{siteContent.contact.phone}</span>
               </a>
-              <a href="mailto:m@iiafa.info" className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
+              <a href={`mailto:${siteContent.contact.email}`} className="flex items-center justify-center md:justify-start gap-3 text-white/60 hover:text-white transition-colors text-sm">
                 <Mail className="w-4 h-4" style={{ color: '#a97c50' }} />
-                <span>m@iiafa.info</span>
+                <span>{siteContent.contact.email}</span>
               </a>
               <div className="flex items-center justify-center md:justify-start gap-3 text-white/60 text-sm">
                 <MapPin className="w-4 h-4" style={{ color: '#a97c50' }} />
-                <span>الرياض، المملكة العربية السعودية</span>
+                <span>{siteContent.contact.address}</span>
               </div>
             </div>
           </div>

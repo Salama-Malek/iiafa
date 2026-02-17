@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { motion } from 'framer-motion';
 import { Scale, ArrowLeft } from 'lucide-react';
+import logo1 from '@/assets/logo-1.jpg';
 
-const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_698e3ce1927d8fddb186b684/a8872a89f_logo-1.jpg";
+const LOGO_URL = logo1;
+
 
 export default function HeroSection() {
   return (

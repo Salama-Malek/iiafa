@@ -4,16 +4,17 @@ import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/shared/SectionHeader';
 import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft } from 'lucide-react';
+import { services } from '@/content/ar/services';
 
-const services = [
-  { title: 'أعمال الشركات التجارية', icon: Building2, slug: 'commercial-companies', desc: 'صياغة عقود الشركات التجارية بكافة أنواعها، تأسيس الشركات المحدودة والمساهمة، وتحويل المؤسسات الفردية إلى شركات.' },
-  { title: 'الصياغة القانونية', icon: FileText, slug: 'legal-drafting', desc: 'صياغة اللوائح الداخلية والاعتراضية والعقود والخطابات القانونية بمهنية عالية.' },
-  { title: 'الاستشارات القانونية', icon: MessageSquare, slug: 'legal-consulting', desc: 'تقديم الاستشارات القانونية الشفوية والكتابية وعقود الاستشارات السنوية الشاملة.' },
-  { title: 'الأعمال القضائية', icon: Gavel, slug: 'litigation', desc: 'تسوية المنازعات والترافع أمام المحاكم والاعتراض على القرارات وتصفية التركات والتحكيم التجاري.' },
-  { title: 'الأوقاف والوصايا', icon: Landmark, slug: 'waqf-wills', desc: 'صياغة الوصايا وصكوك الأوقاف الأهلية والخيرية والإشراف القانوني على إدارتها.' },
-  { title: 'الوكالات التجارية والملكية الفكرية', icon: Shield, slug: 'commercial-ip', desc: 'صياغة عقود الوكالات التجارية والفرنشايز وتسجيل العلامات التجارية وحماية الملكية الفكرية.' },
-  { title: 'أعمال التوثيق والتسجيل العقاري', icon: Home, slug: 'notarization-realestate', desc: 'إفراغ ورهن وفك رهن العقارات وإصدار الوكالات والإقرارات المالية وأعمال المسجل العقاري.' },
-];
+const icons = {
+  'commercial-companies': Building2,
+  'legal-drafting': FileText,
+  'legal-consulting': MessageSquare,
+  litigation: Gavel,
+  'waqf-wills': Landmark,
+  'commercial-ip': Shield,
+  'notarization-realestate': Home
+};
 
 export default function Services() {
   return (
@@ -57,7 +58,7 @@ export default function Services() {
                   className="group flex gap-5 bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-[#a97c50]/30 shadow-sm hover:shadow-xl transition-all duration-500"
                 >
                   <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110" style={{ background: '#99141e10' }}>
-                    <service.icon className="w-7 h-7" style={{ color: '#99141e' }} />
+                    {React.createElement(icons[service.slug] || FileText, { className: 'w-7 h-7', style: { color: '#99141e' } })}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#99141e] transition-colors">{service.title}</h3>

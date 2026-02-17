@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { base44 } from '@/api/base44Client';
-import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
@@ -8,15 +6,14 @@ import { Search, Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
+import { listArticles } from '@/lib/articles';
 
 export default function Articles() {
   const [search, setSearch] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
 
-  const { data: articles = [], isLoading } = useQuery({
-    queryKey: ['articles'],
-    queryFn: () => base44.entities.Article.list('-publish_date'),
-  });
+  const articles = listArticles();
+  const isLoading = false;
 
   const allTags = [...new Set(articles.flatMap(a => a.tags || []))];
   
