@@ -21,13 +21,25 @@
 }
 
 :root {
-  --burgundy: #99141e;
-  --burgundy-dark: #7a1018;
-  --gold: #a97c50;
-  --gold-light: #c4a47a;
-  --cream: #faf8f5;
-  --warm-gray: #f0ece6;
-  --warm-gray-dark: #d4cec4;
+  --primary-solid: #a97c50;
+  --primary-hover: #966d45;
+  --primary-strong: #7f5c3a;
+  --primary-soft: #d7bea2;
+  --secondary-solid: #99141e;
+  --secondary-hover: #7f1119;
+  --danger: #99141e;
+  --danger-strong: #7a1018;
+  --ink: #1f1a16;
+  --muted-ink: #6f6256;
+  --surface-cream: #faf6f0;
+  --surface-soft: #f3eadf;
+  --surface-card: #fffcf7;
+  --surface-dark: #3f3d3d;
+  --surface-darker: #1e1d1d;
+  --border-warm: #dfd2c3;
+  --success: #2f7d4a;
+  --warning: #b3741f;
+  --info: #26629b;
 }
 
 html {
@@ -41,53 +53,75 @@ html {
 body {
   margin: 0;
   font-family: 'Saudi', 'Tajawal', 'Arial', sans-serif;
-  background-color: var(--cream);
-  color: #2d2520;
+  background-color: var(--surface-cream);
+  color: var(--ink);
   line-height: 1.8;
 }
 
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
+a, button { -webkit-tap-highlight-color: transparent; }
+
+a { color: var(--secondary-solid); }
+a:hover { color: var(--secondary-hover); }
+
+a:visited { color: #6f0f16; }
 
 :focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--primary-solid);
   outline-offset: 3px;
   border-radius: 0.5rem;
 }
 
-/* Geometric pattern overlay */
 .pattern-overlay {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a97c50' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--burgundy); }
+::-webkit-scrollbar-track { background: var(--surface-cream); }
+::-webkit-scrollbar-thumb { background: var(--primary-solid); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-hover); }
 
-.prose-arabic { line-height: 2; font-size: 1.125rem; }
-.prose-arabic h2 { color: var(--burgundy); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-.prose-arabic h3 { color: var(--gold); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
-.prose-arabic p { margin-bottom: 1rem; }
+.prose-arabic { line-height: 2; font-size: 1.125rem; color: var(--ink); }
+.prose-arabic h2 { color: var(--secondary-solid); font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+.prose-arabic h3 { color: var(--primary-solid); font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+.prose-arabic p { margin-bottom: 1rem; color: var(--muted-ink); }
 .prose-arabic ul, .prose-arabic ol { margin-right: 1.5rem; margin-bottom: 1rem; }
 .prose-arabic li { margin-bottom: 0.5rem; }
 
 .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 18px;
-  }
-
-  .mobile-app-shell {
-    background: linear-gradient(180deg, #fff 0%, #faf8f5 60%);
-  }
-
+  html { font-size: 18px; }
+  .mobile-app-shell { background: linear-gradient(180deg, #fff 0%, var(--surface-cream) 60%); }
   h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
   h2 { font-size: clamp(1.5rem, 6.5vw, 2rem); }
   p { font-size: clamp(0.98rem, 3.5vw, 1.125rem); }
+}
+
+@layer components {
+  .brand-swap {
+    background-color: var(--secondary-solid);
+    color: var(--primary-soft);
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+  }
+
+  .brand-swap:hover {
+    background-color: var(--primary-solid);
+    color: #fff;
+  }
+
+  .brand-chip {
+    background-color: color-mix(in srgb, var(--secondary-solid) 12%, white);
+    color: var(--primary-strong);
+    border: 1px solid color-mix(in srgb, var(--secondary-solid) 22%, white);
+    transition: all 0.25s ease;
+  }
+
+  .brand-chip:hover {
+    background-color: color-mix(in srgb, var(--primary-solid) 16%, white);
+    color: var(--secondary-solid);
+    border-color: color-mix(in srgb, var(--primary-solid) 40%, white);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,25 +135,47 @@ a, button {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 20 15% 15%;
-    --card: 30 20% 98%;
-    --card-foreground: 20 15% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 15% 15%;
-    --primary: 355 78% 34%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 30 35% 49%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 30 20% 93%;
-    --muted-foreground: 20 10% 45%;
-    --accent: 30 35% 49%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 35 55% 97%;
+    --foreground: 27 18% 10%;
+    --card: 35 70% 99%;
+    --card-foreground: 27 18% 10%;
+    --popover: 35 70% 99%;
+    --popover-foreground: 27 18% 10%;
+    --primary: 31 36% 49%;
+    --primary-foreground: 32 30% 9%;
+    --secondary: 356 77% 34%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 34 33% 92%;
+    --muted-foreground: 24 14% 38%;
+    --accent: 31 34% 88%;
+    --accent-foreground: 27 18% 16%;
+    --destructive: 356 77% 34%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 355 78% 34%;
+    --border: 31 29% 83%;
+    --input: 31 29% 83%;
+    --ring: 31 36% 49%;
     --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 27 26% 9%;
+    --foreground: 36 35% 92%;
+    --card: 26 25% 12%;
+    --card-foreground: 36 35% 92%;
+    --popover: 26 25% 12%;
+    --popover-foreground: 36 35% 92%;
+    --primary: 31 36% 54%;
+    --primary-foreground: 30 32% 11%;
+    --secondary: 356 63% 42%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 27 18% 18%;
+    --muted-foreground: 31 18% 72%;
+    --accent: 27 18% 22%;
+    --accent-foreground: 36 35% 92%;
+    --destructive: 356 77% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 27 18% 25%;
+    --input: 27 18% 25%;
+    --ring: 31 36% 54%;
   }
 }

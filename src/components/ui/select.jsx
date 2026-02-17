@@ -25,7 +25,7 @@ function SelectTrigger({ className = '', children }) {
     <select
       value={value}
       onChange={(event) => setValue(event.target.value)}
-      className={`w-full rounded-lg border border-gray-300 px-3 py-2 bg-white ${className}`.trim()}
+      className={`w-full rounded-lg border border-input bg-card px-3 py-2 text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${className}`.trim()}
     >
       {placeholderChild && <option value="">{placeholderChild.props.placeholder}</option>}
       {React.Children.toArray(children).filter((child) => child?.type?.displayName !== 'SelectValue')}

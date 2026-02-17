@@ -86,7 +86,7 @@ function Field({ label, required, hint, icon: Icon, children }) {
         <Label className="text-sm font-semibold text-gray-800 text-right inline-flex items-center gap-2">
           {Icon ? (
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[rgba(153,20,30,0.07)] border border-[rgba(153,20,30,0.12)]">
-              <Icon className="h-4 w-4 text-[var(--burgundy)]" />
+              <Icon className="h-4 w-4 text-[var(--primary-solid)]" />
             </span>
           ) : null}
           <span>
@@ -326,13 +326,13 @@ export default function Contact() {
                     >
                       <point.icon
                         className="w-5 h-5"
-                        style={{ color: "var(--burgundy)" }}
+                        style={{ color: "var(--primary-solid)" }}
                       />
                     </div>
 
                     <h3
                       className="font-bold text-lg mb-1.5"
-                      style={{ color: "var(--burgundy)" }}
+                      style={{ color: "var(--primary-solid)" }}
                     >
                       {point.title}
                     </h3>
@@ -391,13 +391,13 @@ export default function Contact() {
                       >
                         <CheckCircle2
                           className="w-8 h-8"
-                          style={{ color: "var(--burgundy)" }}
+                          style={{ color: "var(--primary-solid)" }}
                         />
                       </div>
 
                       <h3
                         className="text-2xl font-bold mb-2"
-                        style={{ color: "var(--burgundy)" }}
+                        style={{ color: "var(--primary-solid)" }}
                       >
                         تم إرسال رسالتك بنجاح
                       </h3>
@@ -413,7 +413,7 @@ export default function Contact() {
                           className="rounded-xl px-6"
                           style={{
                             background:
-                              "linear-gradient(130deg, var(--burgundy), #7f121a)",
+                              "linear-gradient(130deg, var(--primary-solid), var(--primary-strong))",
                           }}
                         >
                           إرسال طلب جديد
@@ -430,7 +430,7 @@ export default function Contact() {
                         <div className="min-w-0">
                           <h2
                             className="text-2xl md:text-3xl font-bold"
-                            style={{ color: "var(--burgundy)" }}
+                            style={{ color: "var(--primary-solid)" }}
                           >
                             أرسل لنا تفاصيل طلبك
                           </h2>
@@ -442,7 +442,7 @@ export default function Contact() {
                         <span
                           className="text-sm px-3 py-1.5 rounded-full border shrink-0"
                           style={{
-                            color: "var(--burgundy)",
+                            color: "var(--primary-solid)",
                             background: "rgba(153,20,30,0.06)",
                             borderColor: "rgba(153,20,30,0.14)",
                           }}
@@ -539,7 +539,7 @@ export default function Contact() {
                         className="w-full h-14 rounded-2xl text-lg font-bold text-white transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-lg"
                         style={{
                           background:
-                            "linear-gradient(130deg, var(--burgundy), #7f121a)",
+                            "linear-gradient(130deg, var(--primary-solid), var(--primary-strong))",
                         }}
                       >
                         {loading ? (
