@@ -94,7 +94,7 @@ export default function Lawyer() {
                 className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'var(--primary-solid)10' }}>
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--primary-solid) 12%, white)' }}>
                     <section.icon className="w-5 h-5" style={{ color: 'var(--primary-solid)' }} />
                   </div>
                   <h3 className="font-bold text-lg" style={{ color: 'var(--primary-solid)' }}>{section.title}</h3>

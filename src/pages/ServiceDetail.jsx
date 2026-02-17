@@ -86,7 +86,7 @@ export default function ServiceDetail() {
     return (
       <div className="pt-32 pb-20 text-center">
         <p className="text-xl text-gray-500">الخدمة غير موجودة</p>
-        <Link to={createPageUrl('Services')} className="mt-4 inline-block text-[var(--primary-solid)] font-bold">
+        <Link to={createPageUrl('Services')} className="mt-4 inline-block brand-chip font-bold px-3 py-1.5 rounded-lg">
           العودة للخدمات
         </Link>
       </div>
@@ -181,7 +181,7 @@ export default function ServiceDetail() {
           <div className="mt-8 text-center">
             <Link
               to={createPageUrl('Services')}
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-[var(--primary-solid)] transition-colors font-medium"
+              className="inline-flex items-center gap-2 brand-chip font-medium px-3 py-1.5 rounded-lg"
             >
               <ArrowRight className="w-5 h-5" />
               العودة لجميع الخدمات

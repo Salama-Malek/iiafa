@@ -22,7 +22,7 @@ export default function MobileNav() {
             key={`${tab.page ?? tab.label}-${tab.path}`}
             to={tab.path}
             className={({ isActive }) =>
-              `py-2.5 ${isActive ? 'text-[var(--primary-solid)] font-bold' : 'text-gray-500'} transition-colors`
+              `py-2.5 rounded-xl ${isActive ? 'brand-swap font-bold' : 'text-gray-500 hover:text-[var(--secondary-solid)] hover:bg-[var(--primary-soft)]/40'} transition-colors`
             }
           >
             <div className="flex flex-col items-center gap-1">

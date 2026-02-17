@@ -139,7 +139,7 @@ export default function About() {
               >
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
-                  style={{ background: "var(--primary-solid)10" }}
+                  style={{ background: "color-mix(in srgb, var(--primary-solid) 12%, white)" }}
                 >
                   <item.icon className="w-7 h-7" style={{ color: "var(--primary-solid)" }} />
                 </div>

@@ -97,6 +97,33 @@ a:visited { color: #6f0f16; }
   p { font-size: clamp(0.98rem, 3.5vw, 1.125rem); }
 }
 
+@layer components {
+  .brand-swap {
+    background-color: var(--secondary-solid);
+    color: var(--primary-soft);
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+  }
+
+  .brand-swap:hover {
+    background-color: var(--primary-solid);
+    color: #fff;
+  }
+
+  .brand-chip {
+    background-color: color-mix(in srgb, var(--secondary-solid) 12%, white);
+    color: var(--primary-strong);
+    border: 1px solid color-mix(in srgb, var(--secondary-solid) 22%, white);
+    transition: all 0.25s ease;
+  }
+
+  .brand-chip:hover {
+    background-color: color-mix(in srgb, var(--primary-solid) 16%, white);
+    color: var(--secondary-solid);
+    border-color: color-mix(in srgb, var(--primary-solid) 40%, white);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

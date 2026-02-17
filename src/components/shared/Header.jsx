@@ -47,7 +47,7 @@ export default function Header({ currentPage }) {
               />
               <div className="hidden sm:block">
                 <div
-                  className={`font-bold text-base transition-colors ${scrolled ? "text-[var(--primary-solid)]" : "text-white"}`}
+                  className={`font-bold text-base transition-colors ${scrolled ? "text-[var(--secondary-solid)]" : "text-white"}`}
                 >
                   {t("hero.title")}
                 </div>
@@ -72,10 +72,10 @@ export default function Header({ currentPage }) {
                     className={`relative px-4 py-2 rounded-xl text-base font-medium transition-all ${
                       isActive
                         ? scrolled
-                          ? "text-[var(--primary-solid)]"
+                          ? "brand-swap"
                           : "text-white"
                         : scrolled
-                          ? "text-gray-700 hover:text-[var(--primary-solid)]"
+                          ? "text-gray-700 hover:text-[var(--secondary-solid)] hover:bg-[var(--primary-soft)]/40"
                           : "text-white/85 hover:text-white"
                     }`}
                     aria-current={isActive ? "page" : undefined}
@@ -136,7 +136,7 @@ export default function Header({ currentPage }) {
                   key={l.page}
                   to={createPageUrl(l.page)}
                   onClick={() => setMobileOpen(false)}
-                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[var(--primary-solid)] transition-colors"
+                  className="px-8 py-3 text-xl font-medium brand-chip rounded-xl transition-colors"
                 >
                   {l.label}
                 </Link>

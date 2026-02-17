@@ -40,7 +40,7 @@ export default function ArticleDetail() {
     return (
       <div className="pt-32 pb-20 text-center">
         <p className="text-xl text-gray-500 mb-4">المقال غير موجود</p>
-        <Link to={createPageUrl('Articles')} className="text-[var(--primary-solid)] font-bold">
+        <Link to={createPageUrl('Articles')} className="brand-chip font-bold px-3 py-1.5 rounded-lg inline-block">
           العودة للمقالات
         </Link>
       </div>
@@ -104,7 +104,7 @@ export default function ArticleDetail() {
           {article.tags?.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-8">
               {article.tags.map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs" style={{ background: 'var(--primary-solid)15', color: 'var(--primary-solid)' }}>{tag}</Badge>
+                <Badge key={tag} variant="secondary" className="text-xs" style={{ background: 'color-mix(in srgb, var(--primary-solid) 18%, white)', color: 'var(--primary-solid)' }}>{tag}</Badge>
               ))}
             </div>
           )}

@@ -30,3 +30,4 @@
 - Burgundy is used for secondary brand accents, selected headings, and deep gradient blending.
 - Errors/destructive continue to use burgundy semantic destructive tokens for consistency.
 - Focus rings remain clay for visibility on light/cream surfaces.
+- Brand swap rule for interactive elements: when text uses clay (`--primary-*`), surface should use burgundy (`--secondary-*`), and hover swaps to clay background with high-contrast text.

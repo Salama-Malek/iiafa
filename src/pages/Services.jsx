@@ -57,13 +57,13 @@ export default function Services() {
                   to={createPageUrl(`ServiceDetail?service=${service.slug}`)}
                   className="group flex gap-5 bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-[var(--primary-solid)]/30 shadow-sm hover:shadow-xl transition-all duration-500"
                 >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110" style={{ background: 'var(--primary-solid)10' }}>
+                  <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-all group-hover:scale-110" style={{ background: 'color-mix(in srgb, var(--primary-solid) 12%, white)' }}>
                     {React.createElement(icons[service.slug] || FileText, { className: 'w-7 h-7', style: { color: 'var(--primary-solid)' } })}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[var(--primary-solid)] transition-colors">{service.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed mb-3">{service.desc}</p>
-                    <span className="inline-flex items-center gap-1 text-sm font-medium transition-all group-hover:gap-2" style={{ color: 'var(--primary-solid)' }}>
+                    <span className="inline-flex items-center gap-1 text-sm font-medium transition-all group-hover:gap-2 brand-chip px-2 py-1 rounded-md">
                       تفاصيل الخدمة
                       <ArrowLeft className="w-4 h-4" />
                     </span>
