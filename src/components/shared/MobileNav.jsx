@@ -14,22 +14,9 @@ const tabs = [
 
 export default function MobileNav({ currentPage }) {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t pb-safe" style={{ borderColor: '#e8e0d5' }}>
-      <div className="flex items-center justify-around px-2 py-2">
-        {tabs.map(({ label, page, Icon }) => {
-          const isActive = currentPage === page;
-          return (
-            <Link
-              key={page}
-              to={createPageUrl(page)}
-              className="flex flex-col items-center gap-0.5 py-1 px-2 rounded-lg transition-all"
-              style={isActive ? { color: '#99141e' } : { color: '#888' }}
-            >
-              <Icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.5} />
-              <span className="text-[10px] font-medium">{label}</span>
-            </Link>
-          );
-        })}
+    <nav className="md:hidden fixed bottom-0 right-0 left-0 z-40 bg-white border-t pb-[calc(env(safe-area-inset-bottom)+0.35rem)] pt-2">
+      <div className="grid grid-cols-5 text-center text-xs">
+        {tabs.map((tab) => <NavLink key={tab.path} to={tab.path} className={({isActive}) => `py-1 ${isActive ? 'text-[#99141e] font-semibold' : 'text-gray-500'}`}>{tab.label}</NavLink>)}
       </div>
     </nav>
   );
