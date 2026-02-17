@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import HeroSection from '../components/home/HeroSection';
-import ServicesPreview from '../components/home/ServicesPreview';
-import WhyUsSection from '../components/home/WhyUsSection';
-import CTASection from '../components/home/CTASection';
+
+const ServicesPreview = lazy(() => import('../components/home/ServicesPreview'));
+const WhyUsSection = lazy(() => import('../components/home/WhyUsSection'));
+const CTASection = lazy(() => import('../components/home/CTASection'));
 
 export default function Home() {
   return (
     <div>
       <HeroSection />
-      <ServicesPreview />
-      <WhyUsSection />
-      <CTASection />
+      <Suspense fallback={null}>
+        <ServicesPreview />
+        <WhyUsSection />
+        <CTASection />
+      </Suspense>
     </div>
   );
 }
