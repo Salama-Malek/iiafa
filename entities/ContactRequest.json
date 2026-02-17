@@ -46,6 +46,7 @@
   "required": [
     "full_name",
     "phone",
+    "service_type",
     "message"
   ]
 }

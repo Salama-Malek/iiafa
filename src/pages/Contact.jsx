@@ -30,6 +30,32 @@ import {
 import { services } from "@/content/ar/services";
 import { toast } from "sonner";
 
+const CONTACT_EMAIL = "m@iiafa.info";
+const INITIAL_FORM = {
+  full_name: "",
+  phone: "",
+  email: "",
+  service_type: "",
+  message: "",
+};
+
+function buildMailtoLink(form) {
+  const selectedService = form.service_type || "Other";
+  const subject = `Legal Consultation Request - ${selectedService}`;
+  const body = [
+    "New consultation request details:",
+    `Full Name: ${form.full_name}`,
+    `Phone: ${form.phone}`,
+    `Email: ${form.email || "-"}`,
+    `Requested Service: ${selectedService}`,
+    "",
+    "Message:",
+    form.message,
+  ].join("\n");
+
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 const contactChannels = [
   {
     icon: Phone,
@@ -42,9 +68,9 @@ const contactChannels = [
   {
     icon: Mail,
     label: "البريد الإلكتروني",
-    value: "m@iiafa.info",
+    value: CONTACT_EMAIL,
     hint: "استقبال الطلبات",
-    href: "mailto:m@iiafa.info",
+    href: `mailto:${CONTACT_EMAIL}`,
     ltr: true,
   },
   {
@@ -129,13 +155,7 @@ export default function Contact() {
     []
   );
 
-  const [form, setForm] = useState({
-    full_name: "",
-    phone: "",
-    email: "",
-    service_type: "",
-    message: "",
-  });
+  const [form, setForm] = useState(INITIAL_FORM);
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -144,9 +164,17 @@ export default function Contact() {
     return (
       form.full_name.trim().length > 0 &&
       form.phone.trim().length > 0 &&
+      form.service_type.trim().length > 0 &&
       form.message.trim().length > 0
     );
-  }, [form.full_name, form.phone, form.message]);
+  }, [form.full_name, form.phone, form.service_type, form.message]);
+
+  const updateForm = (field, value) => {
+    setForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -158,19 +186,16 @@ export default function Contact() {
     }
 
     setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      window.location.href = buildMailtoLink(form);
       setSubmitted(true);
-      toast.success("تم إرسال طلبك بنجاح");
-      setForm({
-        full_name: "",
-        phone: "",
-        email: "",
-        service_type: "",
-        message: "",
-      });
-    }, 500);
+      toast.success("تم تجهيز الرسالة. يرجى تأكيد الإرسال من تطبيق البريد.");
+      setForm(INITIAL_FORM);
+    } catch (error) {
+      toast.error("لم نتمكن من فتح تطبيق البريد.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -459,7 +484,7 @@ export default function Contact() {
                               autoComplete="name"
                               value={form.full_name}
                               onChange={(e) =>
-                                setForm({ ...form, full_name: e.target.value })
+                                updateForm("full_name", e.target.value)
                               }
                               className="w-full h-12 rounded-2xl border-0 bg-transparent px-4 text-right placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                               placeholder="أدخل اسمك الكامل"
@@ -480,7 +505,7 @@ export default function Contact() {
                               autoComplete="tel"
                               value={form.phone}
                               onChange={(e) =>
-                                setForm({ ...form, phone: e.target.value })
+                                updateForm("phone", e.target.value)
                               }
                               className="w-full h-12 rounded-2xl border-0 bg-transparent px-4 text-left placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                               placeholder="05XXXXXXXX"
@@ -498,12 +523,33 @@ export default function Contact() {
                               autoComplete="email"
                               value={form.email}
                               onChange={(e) =>
-                                setForm({ ...form, email: e.target.value })
+                                updateForm("email", e.target.value)
                               }
                               className="w-full h-12 rounded-2xl border-0 bg-transparent px-4 text-left placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
                               placeholder="example@email.com"
                               dir="ltr"
                             />
+                          </InputShell>
+                        </Field>
+                        <Field label="نوع الخدمة المطلوبة" required icon={Briefcase}>
+                          <InputShell dir="rtl">
+                            <Select
+                              value={form.service_type}
+                              onValueChange={(value) =>
+                                updateForm("service_type", value)
+                              }
+                            >
+                              <SelectTrigger className="w-full h-12 rounded-2xl border-0 bg-transparent px-4 text-right focus-visible:ring-0 focus-visible:ring-offset-0">
+                                <SelectValue placeholder="اختر نوع الخدمة" />
+                                <SelectContent>
+                                  {serviceOptions.map((option) => (
+                                    <SelectItem key={option} value={option}>
+                                      {option}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </SelectTrigger>
+                            </Select>
                           </InputShell>
                         </Field>
 
@@ -515,7 +561,7 @@ export default function Contact() {
                             required
                             value={form.message}
                             onChange={(e) =>
-                              setForm({ ...form, message: e.target.value })
+                              updateForm("message", e.target.value)
                             }
                             className="w-full min-h-[160px] rounded-2xl border-0 bg-transparent px-4 py-3 text-right placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none"
                             placeholder="اكتب رسالتك هنا... (اذكر نوع القضية وأي تفاصيل مهمة)"
@@ -529,7 +575,7 @@ export default function Contact() {
                           لأغراض التواصل فقط.
                         </div>
                         <div className="text-xs text-gray-500">
-                          الحقول المطلوبة: الاسم + الجوال + الرسالة
+                          الحقول المطلوبة: الاسم + الجوال + نوع الخدمة + الرسالة
                         </div>
                       </div>
 
