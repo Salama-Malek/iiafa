@@ -3,6 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import Layout from './Layout';
 import PageNotFound from './lib/PageNotFound';
+import { t } from './i18n';
 
 // Lazy-loaded pages (code splitting)
 const Home = lazy(() => import('./pages/Home'));
@@ -18,7 +19,7 @@ function LoadingFallback() {
   return (
     <div className="min-h-[40vh] flex items-center justify-center">
       <div className="text-center">
-        <div className="text-sm opacity-70">جارٍ التحميل...</div>
+        <div className="text-sm opacity-70">{t('app.loading')}</div>
       </div>
     </div>
   );
