@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
 import { motion } from 'framer-motion';
 import SectionHeader from '../shared/SectionHeader';
-import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft } from 'lucide-react';
+import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft, Scale } from 'lucide-react';
 import { t } from '@/i18n';
 
 const services = [
   { title: t('home.services.items.commercial.title'), icon: Building2, slug: 'commercial-companies', desc: t('home.services.items.commercial.desc') },
+  { title: t('home.services.items.governance.title'), icon: Scale, slug: 'corporate-governance', desc: t('home.services.items.governance.desc') },
   { title: t('home.services.items.drafting.title'), icon: FileText, slug: 'legal-drafting', desc: t('home.services.items.drafting.desc') },
   { title: t('home.services.items.consulting.title'), icon: MessageSquare, slug: 'legal-consulting', desc: t('home.services.items.consulting.desc') },
   { title: t('home.services.items.litigation.title'), icon: Gavel, slug: 'litigation', desc: t('home.services.items.litigation.desc') },

@@ -60,7 +60,7 @@ export default function Header({ currentPage }) {
             </Link>
 
             <nav
-              className="hidden md:flex items-center gap-1"
+              className="hidden lg:flex items-center gap-1"
               aria-label={t("nav.mainNav")}
             >
               {navLinks.map((l) => {
@@ -101,7 +101,7 @@ export default function Header({ currentPage }) {
             </nav>
 
             <button
-              className="md:hidden p-2 rounded-lg"
+              className="lg:hidden p-2 rounded-lg"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={t("nav.mobileToggle")}
             >
@@ -125,7 +125,7 @@ export default function Header({ currentPage }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] md:hidden"
+            className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] lg:hidden"
           >
             <nav
               className="flex flex-col items-center gap-2 pt-8"

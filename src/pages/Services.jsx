@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/shared/SectionHeader';
-import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft } from 'lucide-react';
+import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft, Scale } from 'lucide-react';
 import { services } from '@/content/ar/services';
 
 const icons = {
   'commercial-companies': Building2,
+  'corporate-governance': Scale,
   'legal-drafting': FileText,
   'legal-consulting': MessageSquare,
   litigation: Gavel,
