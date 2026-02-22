@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Building2, Eye, Play, ShieldCheck, Sparkles, Star, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../utils';
-import aboutVideo from '../assets/Videos/about.MOV';
+import aboutVideoWebm from '../assets/Videos/about.webm';
+import aboutVideoMp4 from '../assets/Videos/about.mp4';
+import aboutPoster from '../assets/Images/about-poster.webp';
 import logo1 from '/logo-1.webp';
 
 const LOGO_URL = logo1;
@@ -50,7 +52,7 @@ export default function About() {
             className="text-center"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-bold mb-5">
-              <Building2 className="w-4 h-4" />
+              <Building2 className="w-4 h-4" aria-hidden="true" />
               من نحن
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">شركة إعفاء للمحاماة والاستشارات القانونية</h1>
@@ -72,7 +74,7 @@ export default function About() {
               className="rounded-3xl p-7 md:p-10 border border-[#e8dfd5] bg-white shadow-sm"
             >
               <div className="inline-flex w-fit items-center gap-2 px-3 py-1.5 rounded-full bg-[#a97c5015] text-sm font-bold text-[#6e4e2f] mb-4">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4" aria-hidden="true" />
                 لماذا إعفاء
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#a97c50' }}>
@@ -103,7 +105,18 @@ export default function About() {
               className="rounded-3xl bg-[#2c1d13] p-6 md:p-7 text-white border border-[#5e432c]"
             >
               <div className="rounded-2xl bg-white/10 border border-white/15 p-6">
-                <img src={LOGO_URL} alt="شعار شركة إعفاء" className="w-28 h-28 object-contain mx-auto mb-5" />
+                <picture>
+                  <source srcSet="/logo-1.avif" type="image/avif" />
+                  <img
+                    src={LOGO_URL}
+                    alt="شعار شركة إعفاء"
+                    className="w-28 h-28 object-contain mx-auto mb-5"
+                    loading="lazy"
+                    decoding="async"
+                    width="112"
+                    height="112"
+                  />
+                </picture>
                 <div className="space-y-4">
                   <div>
                     <p className="text-[#d6b693] text-sm">التخصص</p>
@@ -136,18 +149,22 @@ export default function About() {
                 </h3>
               </div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[#99141e] text-white px-4 py-2 text-sm font-bold">
-                <Play className="w-4 h-4" />
+                <Play className="w-4 h-4" aria-hidden="true" />
                 فيديو تعريفي
               </div>
             </div>
             <div className="rounded-3xl overflow-hidden border border-[#dccdbd] bg-[#1d130b] shadow-xl">
               <video
-                src={aboutVideo}
                 controls
-                preload="metadata"
+                preload="none"
+                poster={aboutPoster}
                 playsInline
+                width="1280"
+                height="720"
                 className="w-full h-[280px] md:h-[520px] object-cover"
               >
+                <source src={aboutVideoWebm} type="video/webm" />
+                <source src={aboutVideoMp4} type="video/mp4" />
                 المتصفح الحالي لا يدعم تشغيل الفيديو.
               </video>
             </div>
@@ -164,7 +181,7 @@ export default function About() {
                 className="rounded-2xl p-7 bg-white border border-[#e9e0d6] shadow-sm"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#a97c5015] flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6" style={{ color: '#a97c50' }} />
+                  <item.icon className="w-6 h-6" style={{ color: '#a97c50' }} aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold mb-3" style={{ color: '#a97c50' }}>
                   {item.title}
@@ -181,7 +198,7 @@ export default function About() {
             className="rounded-3xl p-7 md:p-10 bg-[#2c1d13] text-white border border-[#5c3d25]"
           >
             <div className="flex items-center gap-2 mb-4">
-              <ShieldCheck className="w-5 h-5 text-[#d6b693]" />
+              <ShieldCheck className="w-5 h-5 text-[#d6b693]" aria-hidden="true" />
               <h3 className="text-2xl font-bold">ماذا نضمن لك</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -207,7 +224,7 @@ export default function About() {
           style={{ background: '#a97c50' }}
         >
           تواصل معنا
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-5 h-5" aria-hidden="true" />
         </Link>
       </section>
     </div>

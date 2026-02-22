@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '../../utils';
-import { motion } from 'framer-motion';
 import SectionHeader from '../shared/SectionHeader';
 import { Building2, FileText, MessageSquare, Gavel, Landmark, Shield, Home, ArrowLeft, Scale } from 'lucide-react';
 import { t } from '@/i18n';
@@ -19,7 +18,7 @@ const services = [
 
 export default function ServicesPreview() {
   return (
-    <section className="py-20 md:py-28 pattern-overlay" style={{ background: 'var(--cream)' }}>
+    <section className="py-20 md:py-28 pattern-overlay cv-auto" style={{ background: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <SectionHeader
           title={t('home.services.title')}
@@ -28,28 +27,22 @@ export default function ServicesPreview() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.map((service, index) => (
-            <motion.div
-              key={service.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-            >
+            <div key={service.slug} className="animate-fade-up [animation-fill-mode:both]" style={{ animationDelay: `${index * 80}ms` }}>
               <Link
                 to={createPageUrl(`ServiceDetail?service=${service.slug}`)}
                 className="group block bg-white rounded-3xl p-6 md:p-8 border border-transparent hover:border-[#99141e]/40 shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110" style={{ background: '#a97c5010' }}>
-                  <service.icon className="w-6 h-6" style={{ color: '#a97c50' }} />
+                  <service.icon className="w-6 h-6" style={{ color: '#a97c50' }} aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-gray-900 group-hover:text-[#a97c50] transition-colors">{service.title}</h3>
                 <p className="text-gray-600 text-base leading-relaxed mb-4">{service.desc}</p>
                 <span className="inline-flex items-center gap-1 text-base font-medium transition-all group-hover:gap-2" style={{ color: '#99141e' }}>
                   {t('home.services.more')}
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-4 h-4" aria-hidden="true" />
                 </span>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -60,7 +53,7 @@ export default function ServicesPreview() {
             style={{ background: '#a97c50' }}
           >
             {t('home.services.allServices')}
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeft className="w-5 h-5" aria-hidden="true" />
           </Link>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "../../utils";
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 import logo2 from "/logo-2.webp";
 import { siteContent } from "@/content/ar/site";
 import { t } from "@/i18n";
@@ -13,12 +12,17 @@ const navLinks = siteContent.navLinks;
 export default function Header({ currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -36,23 +40,26 @@ export default function Header({ currentPage }) {
               className="flex items-center gap-3"
               aria-label={t("nav.homeAria")}
             >
-              <img
-                src={LOGO_URL}
-                alt={t("app.siteName")}
-                className="w-11 h-11 md:w-12 md:h-12 object-contain rounded-xl"
-                loading="eager"
-                decoding="async"
-                width="48"
-                height="48"
-              />
+              <picture>
+                <source srcSet="/logo-2.avif" type="image/avif" />
+                <img
+                  src={LOGO_URL}
+                  alt={t("app.siteName")}
+                  className="w-11 h-11 md:w-12 md:h-12 object-contain rounded-xl"
+                  loading="eager"
+                  decoding="async"
+                  width="48"
+                  height="48"
+                />
+              </picture>
               <div className="hidden sm:block">
                 <div
-                  className={`font-bold text-base transition-colors ${scrolled ? "text-[#a97c50]" : "text-white"}`}
+                  className={`font-bold text-lg transition-colors ${scrolled ? "text-[#a97c50]" : "text-white"}`}
                 >
                   {t("hero.title")}
                 </div>
                 <p
-                  className={`text-xs transition-colors ${scrolled ? "text-gray-600" : "text-white/75"}`}
+                  className={`text-sm font-bold transition-colors ${scrolled ? "text-gray-600" : "text-white/80"}`}
                 >
                   {t("hero.subtitle")}
                 </p>
@@ -69,7 +76,7 @@ export default function Header({ currentPage }) {
                   <Link
                     key={l.page}
                     to={createPageUrl(l.page)}
-                    className={`relative px-4 py-2 rounded-xl text-base font-medium transition-all ${
+                    className={`relative px-4 py-2 rounded-xl text-lg font-bold transition-all ${
                       isActive
                         ? scrolled
                           ? "text-[#a97c50]"
@@ -82,8 +89,7 @@ export default function Header({ currentPage }) {
                   >
                     {l.label}
                     {isActive && (
-                      <motion.div
-                        layoutId="nav-indicator"
+                      <span
                         className="absolute bottom-0 right-4 left-4 h-0.5 rounded-full"
                         style={{ background: "#99141e" }}
                       />
@@ -93,7 +99,7 @@ export default function Header({ currentPage }) {
               })}
               <Link
                 to={createPageUrl("Contact")}
-                className="mr-2 px-5 py-2 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
+                className="mr-2 px-5 py-2 rounded-xl text-base font-bold text-white transition-all hover:opacity-90"
                 style={{ background: "#a97c50" }}
               >
                 {t("nav.freeConsultation")}
@@ -101,17 +107,22 @@ export default function Header({ currentPage }) {
             </nav>
 
             <button
+              type="button"
               className="lg:hidden p-2 rounded-lg"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={t("nav.mobileToggle")}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               {mobileOpen ? (
                 <X
                   className={`w-6 h-6 ${scrolled ? "text-gray-800" : "text-white"}`}
+                  aria-hidden="true"
                 />
               ) : (
                 <Menu
                   className={`w-6 h-6 ${scrolled ? "text-gray-800" : "text-white"}`}
+                  aria-hidden="true"
                 />
               )}
             </button>
@@ -119,32 +130,26 @@ export default function Header({ currentPage }) {
         </div>
       </header>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] lg:hidden"
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 pt-20 bg-[#f7efe4] lg:hidden animate-fade-down">
+          <nav
+            id="mobile-menu"
+            className="flex flex-col items-center gap-2 pt-8"
+            aria-label={t("nav.mobileNav")}
           >
-            <nav
-              className="flex flex-col items-center gap-2 pt-8"
-              aria-label={t("nav.mobileNav")}
-            >
-              {navLinks.map((l) => (
-                <Link
-                  key={l.page}
-                  to={createPageUrl(l.page)}
-                  onClick={() => setMobileOpen(false)}
-                  className="px-8 py-3 text-xl font-medium text-gray-700 hover:text-[#a97c50] transition-colors"
-                >
-                  {l.label}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {navLinks.map((l) => (
+              <Link
+                key={l.page}
+                to={createPageUrl(l.page)}
+                onClick={() => setMobileOpen(false)}
+                className="px-8 py-3 text-2xl font-bold text-gray-700 hover:text-[#a97c50] transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </>
   );
 }
