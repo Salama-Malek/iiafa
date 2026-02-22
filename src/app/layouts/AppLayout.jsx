@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '@/components/shared/Header';
-import Footer from '@/components/shared/Footer';
-import MobileNav from '@/components/shared/MobileNav';
-import FloatingButtons from '@/components/shared/FloatingButtons';
 import { usePageMeta } from '@/hooks/usePageMeta';
 
+const Footer = lazy(() => import('@/components/shared/Footer'));
+const MobileNav = lazy(() => import('@/components/shared/MobileNav'));
+const FloatingButtons = lazy(() => import('@/components/shared/FloatingButtons'));
 
 const META_BY_PAGE = {
   Home: 'home',
@@ -23,13 +23,18 @@ export default function Layout({ currentPageName }) {
 
   return (
     <div dir="rtl" className="min-h-screen mobile-app-shell" style={{ fontFamily: "'Saudi', 'Tajawal', sans-serif" }}>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:right-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-black">
+        الانتقال إلى المحتوى الرئيسي
+      </a>
       <Header currentPage={currentPageName} />
-      <main className="pt-16 md:pt-20 pb-24 md:pb-0">
+      <main id="main-content" className="pt-16 md:pt-20 pb-24 md:pb-0" tabIndex={-1}>
         <Outlet />
       </main>
-      <Footer />
-      <MobileNav currentPage={currentPageName} />
-      <FloatingButtons />
+      <Suspense fallback={null}>
+        <Footer />
+        <MobileNav currentPage={currentPageName} />
+        <FloatingButtons />
+      </Suspense>
     </div>
   );
 }
