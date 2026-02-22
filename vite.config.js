@@ -8,13 +8,5 @@ export default defineConfig({
   build: {
     minify: 'esbuild',
     sourcemap: false,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          motion: ['framer-motion'],
-        },
-      },
-    },
   },
 });

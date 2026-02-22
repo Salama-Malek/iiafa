@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import HeroSection from '../components/home/HeroSection';
 
 const ServicesPreview = lazy(() => import('../components/home/ServicesPreview'));
@@ -7,22 +7,32 @@ const CTASection = lazy(() => import('../components/home/CTASection'));
 
 export default function Home() {
   const [showDeferredSections, setShowDeferredSections] = useState(false);
+  const deferredTriggerRef = useRef(null);
 
   useEffect(() => {
-    let timeoutId;
-    let idleId;
+    if (showDeferredSections || typeof window === 'undefined') return undefined;
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(() => setShowDeferredSections(true), { timeout: 1200 });
-    } else {
-      timeoutId = window.setTimeout(() => setShowDeferredSections(true), 400);
+    const trigger = deferredTriggerRef.current;
+    let timeoutId = window.setTimeout(() => setShowDeferredSections(true), 3000);
+    let observer;
+
+    if (trigger && 'IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            setShowDeferredSections(true);
+          }
+        },
+        { rootMargin: '280px 0px' }
+      );
+      observer.observe(trigger);
     }
 
     return () => {
-      if (timeoutId) window.clearTimeout(timeoutId);
-      if (idleId && 'cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+      window.clearTimeout(timeoutId);
+      observer?.disconnect();
     };
-  }, []);
+  }, [showDeferredSections]);
 
   return (
     <div>
@@ -34,7 +44,7 @@ export default function Home() {
           <CTASection />
         </Suspense>
       ) : (
-        <div aria-hidden="true" className="h-px" />
+        <div ref={deferredTriggerRef} aria-hidden="true" className="h-px" />
       )}
     </div>
   );
