@@ -71,7 +71,8 @@ const translations = {
       services: 'الخدمات',
       articles: 'المقالات',
       lawyer: 'المحامي',
-      contact: 'تواصل'
+      contact: 'تواصل',
+      aria: 'شريط التنقل السفلي للجوال'
     },
     meta: {
       home: {

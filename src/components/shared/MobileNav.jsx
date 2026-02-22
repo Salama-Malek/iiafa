@@ -15,7 +15,7 @@ const tabs = [
 
 export default function MobileNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 right-0 left-0 z-40 border-t border-[#99141e]/20 bg-white/95 backdrop-blur-xl pb-[calc(env(safe-area-inset-bottom)+0.4rem)] pt-2 shadow-[0_-8px_30px_rgba(0,0,0,0.09)]">
+    <nav aria-label={t('mobileNav.aria')} className="md:hidden fixed bottom-0 right-0 left-0 z-40 border-t border-[#99141e]/20 bg-white/95 backdrop-blur-xl pb-[calc(env(safe-area-inset-bottom)+0.4rem)] pt-2 shadow-[0_-8px_30px_rgba(0,0,0,0.09)]">
       <div className="mx-3 rounded-2xl bg-[#faf8f5] border border-[#99141e]/20 grid grid-cols-5 text-center text-xs">
         {tabs.map((tab) => (
           <NavLink

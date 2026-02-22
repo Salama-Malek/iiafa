@@ -96,7 +96,7 @@ export default function ArticleDetail() {
               animate={{ opacity: 1, y: 0 }}
               className="rounded-2xl overflow-hidden shadow-lg mb-10 -mt-10 md:-mt-16 relative z-10"
             >
-              <img src={article.cover_image} alt={article.title} className="w-full object-cover max-h-[500px]" />
+              <img src={article.cover_image} alt={article.title} className="w-full object-cover max-h-[500px]" loading="eager" decoding="async" fetchPriority="high" />
             </motion.div>
           )}
 
@@ -161,7 +161,7 @@ export default function ArticleDetail() {
                     className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-[#99141e]/20"
                   >
                     {r.cover_image && (
-                      <img src={r.cover_image} alt={r.title} className="w-full h-32 object-cover" />
+                      <img src={r.cover_image} alt={r.title} className="w-full h-32 object-cover" loading="lazy" decoding="async" />
                     )}
                     <div className="p-4">
                       <h4 className="font-bold text-sm text-gray-900 group-hover:text-[#a97c50] transition-colors leading-relaxed">

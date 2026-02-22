@@ -62,6 +62,10 @@ export default function Footer() {
               src={LOGO_URL}
               alt={t("app.siteName")}
               className="mx-auto mb-4 h-20 w-20 rounded-xl object-contain sm:mx-0"
+              loading="lazy"
+              decoding="async"
+              width="80"
+              height="80"
             />
             <p className="text-sm leading-relaxed text-white/75 sm:text-base">
               {t("footer.description")}
@@ -86,7 +90,7 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-bold text-[#d7b38b] sm:text-xl">
               {t("footer.quickLinks")}
             </h3>
-            <nav className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1">
+            <nav aria-label={t("footer.quickLinks")} className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1">
               {navLinks.map((l) => (
                 <Link
                   key={l.page}
@@ -139,6 +143,7 @@ export default function Footer() {
             Developed by{" "}
             <a
               href="mailto:salama.malek.dev@gmail.com"
+              rel="noopener noreferrer"
               className="font-semibold text-[#d9a56a] transition-colors hover:text-[#f3d5ae]"
             >
               salama.malek.dev@gmail.com
